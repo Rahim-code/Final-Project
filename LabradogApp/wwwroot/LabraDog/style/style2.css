@@ -1,0 +1,443 @@
+.SI {
+    color: #ff7a00!important;
+  }
+  .tx-15{
+    color: #151515 !important;
+    }
+.bg-dog{
+  background-image: url("../img/bg-dog.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+}
+.AU{
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400;
+}
+.AF{
+  background-color:#f6f6f6 !important ;
+  width: 100%;
+ 
+}
+.EC{
+  background-color: #ff7a00 !important;
+}
+.SUN{
+  color: #ff7a00 !important;
+  font-size: 50px !important;
+}
+.ABC{
+  font-family:"Montserrat", sans-serif;
+  font-weight: 400;
+}
+.EC{
+  background-color: #ff7a00 !important;
+}
+.WCA{
+  font-family: 'Montserrat', sans-serif !important;
+}
+.OP{
+  color: #ff7a00 !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.HD:hover{
+  color: #ff7a00 !important;
+}
+.HD{
+  font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+.D{
+  color: #ff7a00 !important;
+  font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+.NH:hover{
+  color: #ff7a00 !important;
+}
+.GTLN{
+  background-color: #f6f6f6 !important;
+  width: 100%;
+  
+}
+.the{
+  font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 2.25rem;
+}
+.FPA{
+  position: relative !important;
+}
+.FPA>button{
+  position: absolute !important;
+  top: 3px;
+  right: 4px;
+  background-color: #ff7a00 !important;
+}
+.FH:hover{
+  color:#ff7a00 !important ;
+}
+.BC{
+  background-color: #ff7a00 !important;
+  color: white !important;
+  font-weight: 700 !important;
+  border: 1px solid #ff7a00 !important;
+}
+.BC:hover{
+  background-color: black !important;
+  border: 1px solid black !important;
+  
+}
+.FPA{
+  position: relative !important;
+ 
+}
+.FPA>button{
+  position: absolute !important;
+  top: 3px;
+  right: 4px;
+  background-color: #ff7a00 !important;
+}
+.MS{
+  background-color: #f6f6f6 ;
+  
+}
+.FAQ{
+  background-color: #f6f6f6 !important;
+  width: 100%;
+ 
+}
+.accordion1-button:focus{
+  border-color:  white !important;
+  box-shadow: none !important;
+  
+}
+.accordion1-button:not(.collapsed){
+  color: none !important;
+  box-shadow: white !important;
+  background-color: white !important;
+
+}
+.RM:hover{
+  color: #ff7a00 !important;
+}
+.D{
+  color: #ff7a00 !important;
+}
+.ourT{
+  background-image: url("../img/ourTeambg.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+}
+.F{
+  padding: 9px 11px !important;
+}
+.IM{
+  padding:9px 10px !important ;
+}
+.PBG{
+  background-color: rgb(207, 204, 204) !important;
+  color: grey !important;
+}
+.PBG:hover{
+  background-color: #ff7a00 !important;
+  color: white !important;
+}
+.BT{
+  font-size: 1rem !important;
+  font-family: "Open Sans", sans-serif !important;
+  background-color:  #ff7a00 !important;
+}
+.VP{
+  font-weight:400px !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+.bglry-dog{
+  background-image: url("../img/gaLLery.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+}
+.DOGGG1{
+  background-image: url("../img/DGall1.jpg");
+  height: 30vh;;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.DOGGG2{
+ background-image: url("../img/DGall2.jpg");
+ height: 30vh;;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.DOGGG3{
+ background-image: url("../img/DGall3.jpg");
+ height: 30vh;;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.DOGGG4{
+ background-image: url("../img/DGall4.jpg");
+ height: 30vh;;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.DOGGG5{
+ background-image: url("../img/DGall5.jpg");
+ height: 30vh;;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.DOGGG6{
+ background-image: url("../img/DGall6.jpg");
+ height: 30vh;;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.DOGGG7{
+ background-image: url("../img/DGall7.jpg");
+ height: 30vh;;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.DOGGG8{
+ background-image: url("../img/DGall8.jpg");
+ height: 30vh;;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.DOGGG9{
+ background-image: url("../img/DGall9.jpg");
+ height: 30vh;;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.box {
+  width: 100%;
+  background-color: #aaaead;
+}
+.box-one {
+  height: 300px;
+}
+
+/* body {
+  background-color: #545f5d;
+} */
+.H{
+  border-bottom: 3px solid white;
+  padding: 0 !important;
+  
+}
+.H:hover{
+  border-bottom: 3px solid orangered;
+}
+.OPC:hover .DN{
+  display: block !important;
+  
+ }
+
+.MC{
+  color: white !important;
+  font-weight: 500 !important;
+  background-color: rgba(0, 0, 0, 0.6) !important ;
+  transition: all 0.1s ease-in-out; 
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 20px !important;
+}
+.ADS{
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 200;
+  font-size: 17px !important;
+}
+.G{
+  border-bottom: 3px solid orangered;
+}
+.SP{
+  background-image: url("../img/Shopbg.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+}
+.CC:hover{
+  color: #ff7a00 !important;
+}
+.form-check-input:checked {
+  background-color: #ff7a00 !important ;
+  border-color: #ff7a00 !important;
+}
+.SHW:hover{
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+}
+.SF{
+  font-size: 13px !important;
+  color: #FFD600 !important;
+}
+.SPF{
+  font-size: 13px !important;
+}
+.PFS{
+  font-size: 18px !important;
+}
+.HP:hover{
+  color: #ff7a00 !important; ;
+}
+.CSH{
+  color: #ff8800 !important; ;
+}
+.BRP:hover{
+  background-color:#ff7a00 !important ;
+  border: #ff7a00 !important;
+  color: white !important;
+  border:1px solid #ff7a00 !important;
+}
+.BRP{
+  border:1px solid #ff7a00 !important;
+}
+.FFW{
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1.3rem !important;
+}
+.BTCR{
+  background-color: #ff7a00 !important;
+  color: white !important;
+  font-size: 20px !important;
+  
+}
+.BTCR2{
+  background-color: #ff7a00 !important;
+  color: white !important;
+  font-size: 20px !important;
+  padding: 8px 19px !important;
+
+}
+.LAR{
+  font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+.FFWT{
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 100 !important;
+  font-size: 1rem !important;
+}
+.BRPB{
+  background-color:#ff7a00 !important ;
+  border: #ff7a00 !important;
+  color: white !important;
+  border:1px solid #ff7a00 !important;
+}
+
+@media (min-width: 370px) and (max-width: 567px) { 
+  .MQ{
+  flex-direction: column !important;
+  }
+ }
+ 
+@media (min-width: 768px) and (max-width: 1920px) { 
+  .LG{
+    width: 55% !important;
+  }
+ }
+ .DA{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+ }
+ 
+ .GB{
+  background-image: url("../img/bg-dog.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+ }
+ .GBT{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 0.875rem;
+ }
+ .GBTT{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #151515;
+ }
+ .GBO:hover{
+   opacity: .8;
+   transition: all 0.2s ease-in-out;
+ }
+ .BNW{
+  color: #fff;
+  background: linear-gradient(
+90deg
+, #ff7a00, #ffa551);
+font-weight: 700;
+font-size: 0.75rem;
+
+ }
+ .BS{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1.875rem;
+ }
+ .YEM{
+  border-radius: 20px !important;
+ }
+ .CP {
+  list-style: none;
+}
+
+.CP li::before {
+  content: "\2022";
+  color: #ff7a00;
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+}
+.RP{
+  font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+.GPC{
+  font-size: 30px !important;
+}
+.loginreg{
+  background-image: url("../img/LOG.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+}
+a{
+  text-decoration: none !important;
+  color: black !important;
+}

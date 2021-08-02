@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      a{
+        text-decoration: none !important;
+        color: black !important;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LabraDog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- my css -->
+    <link rel="stylesheet" href="style/style.css" />
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- font-awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  
+    
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+
+      <!-- CSS only -->
+      <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    /> -->
+    <!-- JavaScript Bundle with Popper -->
+    <!-- <script
+      src="img/https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script> -->
+    <link rel="stylesheet" href="assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/owl.theme.default.min.css" />
+
+    <!-- masonry -->
+    <script
+    src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+    crossorigin="anonymous"
+    async
+  ></script>
+
+  </head>
+  <body class="w-100">
+    <div
+      class="bg-light d-none d-xl-block d-lg-none w-100 "
+      style="position: relative; z-index: index -1 !important; "
+    >
+      <svg
+        style="position: absolute; z-index:0 !important;"
+        class="rd-navbar-outer-pattern"
+        width="1200"
+        height="70"
+        viewBox="0 0 1200 70"
+        fill="none"
+      >
+        <circle cx="560" cy="20" r="6" fill="#e5e5e5"></circle>
+        <circle cx="1350" cy="5" r="6" fill="#e5e5e5"></circle>
+        <circle
+          cx="750"
+          cy="60"
+          r="19"
+          stroke="#e5e5e5"
+          stroke-width="2"
+        ></circle>
+        <circle cx="182" r="23" stroke="#e5e5e5" stroke-width="2"></circle>
+      </svg>
+      <header 
+       
+        class="d-flex justify-content-around py-4"
+      >
+        <div class="">
+          <i class="mx-3 fab fa-facebook-f SI"></i>
+          <i class="mx-3 fab fa-twitter SI"></i>
+          <i class="mx-3 fab fa-instagram SI"></i>
+        </div>
+        <div class="">
+          <i class="mx-1 fas fa-phone-alt SI"></i>
+          <span class="tx-15" style="margin-right: 20px">+1 800 559 35 48</span>
+          <i class="mx-1 far fa-envelope SI"></i>
+          <span class="tx-15">info@demolink.org</span>
+        </div>
+      </header>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light  py-3 ">
+      <div class="container">
+        <img class="logo-image-default" src="img/dog.png" alt="LabraDog" width="150" height="39">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav d-flex justify-content-end w-100">
+            <li class="nav-item dropdown mx-4">
+              <a class="nav-link active dropdown-toggle H"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-current="page" href="index.html">Home</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="index.html">LabraDog</a></li>
+                <!-- <li><a class="dropdown-item" href="#"></a></li> -->
+                <!-- <li><hr class="dropdown-divider"></li> -->
+                <!-- <li><a class="dropdown-item" href="index.html">Home</a></li> -->
+              </ul>
+            </li>
+            <li class="nav-item mx-4">
+              <a class="nav-link H" href="about.html">About us</a>
+            </li>
+            <li class="nav-item dropdown mx-4">
+              <a class="nav-link H" href="Services.html"   aria-expanded="false">
+                Services
+              </a>
+             
+            </li>
+            <li class="nav-item mx-4">
+              <a class="nav-link H" href="ourTeam.html">Our team</a>
+            </li>
+            <li class="nav-item mx-4">
+              <a class="nav-link H" href="gallery.html">Gallery</a>
+            </li>
+
+            <li class="nav-item dropdown mx-4">
+              <a class="nav-link dropdown-toggle H" href="shop.html"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Shop
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="shop.html">Shop</a></li>
+                <li><a class="dropdown-item" href="single-product.html">Single product</a></li>
+                <!-- <li><hr class="dropdown-divider"></li> -->
+                <li><a class="dropdown-item" href="cart page.html">Cart page</a></li>
+                <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown mx-4">
+              <a class="nav-link dropdown-toggle H" href="#"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Pages
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="page.html">Grid Blog</a></li>
+                <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
+               
+              </ul>
+            </li>
+            <li class="nav-item mx-4">
+              <a class="nav-link H" href="contacts.html">Contacts</a>
+            </li>
+
+            <li class="nav-item mx-4">
+              <a class="nav-link H" href="Login.html"><i class="fas fa-user-plus"></i></a>
+            </li>
+          </ul>
+          
+         
+        </div>
+      </div>
+    </nav>
+    <div id="carouselExampleIndicators" class="carousel slide w-100" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner w-100">
+        <div class="carousel-item active w-100">
+          <!-- <img src="img/dog1.jpg" class="d-block w-100" alt="..."> -->
+          <div class="photos d-flex justify-content-center align-items-start flex-column">
+            <h1 class="container">Professional
+              <span class="TC">Daily Care</span> And <br>
+              Meals For Your Dog
+            </h5>
+            <p class="container"> Here at LabraDog, we love Labrador Retrievers and we have been <br> breeding them for over half a century. We guarantee that puppies from <br> our kennel club will grow into your faithful companions.</p>
+          
+          </div>
+
+        </div>
+        <div class="photos2 carousel-item w-100">
+          <!-- <img src="img/dog2.jpg" class="d-block w-100" alt="..."> -->
+          <div class="photos2 d-flex justify-content-center align-items-start flex-column">
+            <h1 class="container">Breeding The
+              <span class=" TC">Best Friends</span> <br>
+              For You And Your Family
+            </h5>
+            <p class="container"> Here at LabraDog, we love Labrador Retrievers and we have been <br> breeding them for over half a century. We guarantee that puppies from <br> our kennel club will grow into your faithful companions.</p>
+           
+          </div>
+
+        </div>
+        <div class="photos3 carousel-item w-100">
+          <!-- <img src="img/dog3.jpg" class="d-block w-100" alt="..."> -->
+          <div class="photos3 d-flex justify-content-center align-items-start flex-column">
+            <h1 class="container">Flexible
+              <span class=" TC">Training</span>
+              For Your <br> Labrador Retriever
+            </h5>
+            <p class="container"> We will gladly train your labrador, regardless of their age and origin. <br> You can fully trust our experts and rely on our unique techniques that <br> work even for dogs with behavior problems.</p>
+           
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="d-flex justify-content-end container w-100">
+     <div style="height: 75px; width: 75px; margin-top: -20px; z-index:1;" class="rounded-circle EC"></div>
+    </div>
+    <div class="container text-center">
+      <h1 class="WCA">We Care About <span class="OP">Our Pets</span> Since Their Birth</h1>
+      <p class="text-muted">We provide high-quality dog care services and advice for a well-trained dog</p>
+    </div>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="card mx-3 border-0" style="width: 20rem;">
+        <img src="img/card1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4 style="font-size: 20px;" class="text-center HD">Training And Socialization</h4>
+      <p class="text-muted text-center">Training and socializing your dog will ensure their confident and happy adulthood.</p>
+     
+        </div>
+
+      </div>
+     
+      <div class="card mx-3 border-0" style="width: 20rem;">
+        <img src="img/card2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+         <h4 style="font-size: 20px;" class="text-center HD">Breeds</h4>
+         <p class="text-muted text-center">Discover more facts and information about different Labrador Retriever breeds.</p>
+        
+        </div>
+      </div>
+      <div class="card mx-3 border-0" style="width: 20rem;">
+        <img src="img/card3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+         <h4 style="font-size: 20px;" class="text-center HD">Dog Health</h4>
+         <p class="text-muted text-center">Detailed information about  vaccinations, diseases, and  other <br> health-related topics.</p>
+        
+        </div>
+      </div>
+    </div>
+    
+    <div class="AF w-100">
+      <div class="d-flex justify-content-start container">
+        <div style="height: 75px; width: 75px; margin-top: -15px; z-index:1;" class="rounded-circle EC"></div>
+       </div>
+      <div class="container py-5 d-flex justify-content-center flex-wrap">
+        <div class="DDC py-5">
+          <h2 class="FF">Daily <span class="D">Dog</span> Care</h2>
+          <p class="text-muted">Our unique dog care service offers full-service pet  care for pet owners <br> that  demand loving care for their pets and confidence <br> that they leave their pets in a safe environment.</p>
+          <p class="text-muted">We can guarantee a safe, secure and caring environment for your <br> pet for both long and short term.</p>
+          <div class="d-flex">
+            <div class=""><i class="bi bi-sun SUN"></i> <p class="text-muted">Daily <br>
+              Walking</p></div>
+           
+            <div class="mx-5 py-2"><i class="fas fa-paw SUN"></i> <p class="text-muted py-3">Regular <br>
+              Feeding</p></div>
+           
+            <div class=""><i class="bi bi-alarm SUN"></i><p class="text-muted">Saving <br>
+              Your Time</p></div>
+            
+          </div>
+        </div>
+        <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
+          
+            <iframe width="100%" height="350" src="https://www.youtube.com/embed/tfff10zs_Lg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="d-flex justify-content-end container">
+      <div style="height: 75px; width: 75px; margin-top: -30px; z-index:1;" class="rounded-circle EC"></div>
+     </div>
+
+
+
+     <div class="BF w-100">
+     
+      <div class="container py-5 d-flex justify-content-between flex-wrap">
+       
+       <div class=""><img class="w-100" src="img/dog4.jpg" alt=""></div>
+        <div class="DDC py-5">
+          <h2 class="FF SML">Some Facts About The <span class="D">Labrador <br> Retriever</span> Breed</h2>
+        <p class="text-muted SML">The sweet-faced, lovable Labrador Retriever is America’s most popular dog breed. <br> Labs are friendly, outgoing, and high-spirited companions who have a lot of <br> affection to suit a family looking for a medium dog.</p>
+        <p class="SML"><span style="font-weight: 500 !important; color: black !important;">Temperament:</span> <span class="text-muted">Friendly, Active, Outgoing</span></p>
+        <p class="SML"><span style="font-weight: 400;">Breed Popularity:
+        </span> <span class="text-muted">Ranks 1 of 200</span></p>
+        <p class="SML"><span style="font-weight: 400;">Height:
+        </span> <span class="text-muted">22.5-24.5 inches (male), 21.5-23.5 inches (female)</span></p>
+        <p class="SML"><span style="font-weight: 400;">Weight:
+        </span> <span class="text-muted">
+          65-80 pounds (male), 55-70 pounds (female)</span></p>
+          <p class="SML"><span style="font-weight: 400;">Life Expectancy:
+          </span> <span class="text-muted">10-12 years</span></p>
+
+         
+
+        
+        
+          
+        
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="BF w-100">
+     
+      <div class="container py-5 d-flex justify-content-between flex-wrap flex-lg-row flex-column-reverse">
+       
+      
+        <div class="DDC py-5 ">
+         <h2>Breed History</h2>
+        <p class="text-muted">The Labrador Retriever is the traditional waterdog of Newfoundland, long <br> employed as a duck retriever and fisherman’s mate. The breed began its steady <br> climb to supreme popularity in the early 1800s, when Labs were spotted by <br> English nobles visiting Canada.</p>
+        <ul>
+          <li class="text-muted my-2 L">In 1892 two 'liver color' Labradors were born at Buccleuch's kennel.</li>
+          <li class="text-muted my-2 L">In 1899, the first recorded yellow Labrador was born.</li>
+          <li class="text-muted my-2 L">In 1903 the breed was recognized by the Kennel Club in England.</li>
+        </ul>
+        <div class="container"><span class="badge rounded-pill  text-light px-5 py-4 BT">Choose A Puppy</span></div>
+        </div>
+        <div class=""><img class="w-100 my-5" src="img/dog5.jpg" alt=""></div>
+      </div>
+     
+    </div>
+    <div class="FAQ w-100">
+      <div class="d-flex justify-content-end container">
+        <div style="height: 75px; width: 75px; margin-top: -30px; z-index:1;" class="rounded-circle EC"></div>
+       </div>
+      <h3 class="text-center py-5">FAQs About <span class="D">LabraDog</span> Services</h3>
+      <div class="container w-100">
+        <div class="row w-100">
+          <div class="accordion col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
+            <div class="accordion-item ">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  What are the advantages of purchasing a template?
+                  
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                 <p class="text-muted">The major advantage is price: You get a high quality design for just $20-$70. You don’t have to hire a web designer or web design studio. Second advantage is time frame.</p>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    In what formats are your templates available and are they compatible with modern software?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                   <p class="text-muted">Website templates are available in Photoshop and HTML formats. Fonts are included with the Photoshop file. In most templates, HTML is compatible with Adobe® Dreamweaver® and Microsoft® FrontPage®.</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      What do I receive when I order a template from Zemez?
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p class="text-muted">After you complete the payment via our secure form you will receive the instructions for downloading the product. The source files in the download package can vary based on the type of the product you have purchased.</p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What is a unique/non-unique purchase?
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                       <p class="text-muted">Non-exclusive purchase means that other people can buy the template you have chosen some time later. Exclusive or unique purchase guarantees that you are the last person to buy this template. After an exclusive purchase occurs the template is being permanently removed from the sales directory and will never be available to other customers again. Only you and people who bought the template before you will own it.</p>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Do you provide any scripts with your templates or could you do some custom programming?
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                         <p class="text-muted">Our templates do not include any additional scripts. Newsletter subscriptions, search fields, forums, image galleries (in HTML versions of Flash products) are inactive. Basic scripts can be easily added at www.zemez.io If you are not sure that the element you’re interested in is active please contact our Support Chat for clarification.</p>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                          <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What am I allowed and/or not allowed to do with the templates you offer?
+                          </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                           <p class="text-muted"> You may build a website using the template in any way you like. You may not resell or redistribute templates (like we do); claim intellectual or exclusive ownership to any of our products, modified or unmodified. All products are property of content providing companies and individuals. You are also not allowed to make more than one project using the same template (you have to purchase the same template once more in order to make another project with the same design).</p>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-start container mt-5">
+        <div style="height: 45px; width: 45px; margin-top: -5px; z-index:1;" class="rounded-circle EC"></div>
+       </div>
+    </div>
+    <div class="container py-5 pb-0 w-100">
+      <div class="DBG w-100 row">
+       <div class="col-lg-6 col-md-6 col-sm-12"></div>
+       <div class="col-lg-6 col-md-6 col-sm-12">
+         <h3 class="py-3">Why Is A <span class="D">Labrador Retriever</span> The Best Breed For You?</h3>
+         <p class="text-muted"> This lovable breed has so many great attributes that it’s hard to narrow down the best. It wasn’t easy, but we did it. Here are the top 4 reasons why you should have a Labrador Retriever.</p>
+         <div class="wrapper">
+           <p class="mt-4 mb-0">Energy level</p>
+          <div class="progress-bar mt-0">
+          
+            <div class="bar" data-size="20">
+              <span class="perc"></span>
+            </div>
+          </div>
+          <p class="mt-4 mb-0">Relations with children</p>
+          <div class="progress-bar mt-0">
+            <div class="bar" data-size="40">
+              <span class="perc"></span>
+            </div>
+          </div>
+          <p class="mb-0 mt-4">The ability to train</p>
+          <div class="progress-bar mt-0">
+           
+            <div class="bar" data-size="60">
+              <span class="perc"></span>
+            </div>
+          </div>
+          <p class="mt-4 mb-0">The ease of care</p>
+          <div class="progress-bar mt-0">
+           
+            <div class="bar" data-size="80">
+              <span class="perc"></span>      
+            </div>
+          </div>
+         
+        </div>
+       </div>
+      </div>
+     
+    </div>
+    <div class="d-flex justify-content-start container">
+      <div style="height: 75px; width: 75px; margin-top: -10px; z-index:1;" class="rounded-circle EC"></div>
+     </div>
+     <!-- owl-carousel -->
+     <div class="container">
+       <div class="DYK w-100">
+         <h2 class="text-center pt-5">Did You Know?</h2>
+         <p class="text-muted text-center">These are some of the most interesting facts about Labrador Retriever  <br> breed that you may have not heard about.</p>
+         <div class="owl-carousel container py-4">
+    
+     
+          <div class="card roundedd mx-1 shadow p-3 mb-5 bg-body rounded" style="width: 19rem">
+            <div class="card-body">
+              
+             
+              <p style="font-weight: 400;" class="card-text">
+                <i style="color:#ff7a00;" class="fas fa-quote-left"></i>
+                The third Earl of Malmesbury was the first person to call the dogs  Labradors.
+              </p>
+            </div>
+          </div>
+          <div class="card roundedd mx-1 shadow p-3 mb-5 bg-body rounded" style="width: 19rem">
+            <div class="card-body ">
+              
+             
+              <p style="font-weight: 400;" class="card-text">
+                <i style="color:#ff7a00;" class="fas fa-quote-left"></i>
+                Their coat has two layers: a short, thick topcoat and a relatively water-resistant undercoat.
+              </p>
+            </div>
+          </div>
+          <div class="card roundedd mx-1 shadow p-3 mb-5 bg-body rounded" style="width: 19rem">
+            <div class="card-body ">
+            
+              <p style="font-weight: 400;" class="card-text">
+                <i style="color:#ff7a00;" class="fas fa-quote-left"></i>
+                The breed has taken the top spot in its rankings of most popular breeds for 24 consecutive years.
+              </p>
+            </div>
+          </div>
+        </div>
+       </div>
+       <div class="d-flex justify-content-end container mt-5">
+        <div style="height: 65px; width: 65px; margin-top: -60px; z-index:1;" class="rounded-circle EC"></div>
+       </div>
+     </div>
+     <div class="container w-100 ">
+       
+         <h4 class="text-center">Popular Products</h4>
+         <div class="row w-100 justify-content-center mx-auto">
+           <div class="col-lg-3 col-sm-12 col-md-3 my-3">
+             <a href="single-product.html">
+               
+               <div class="card SHW p-0" >
+                 <img src="img/product1.png" class="card-img-top" alt="...">
+                 <div class="card-body text-center">
+                   <i class="fas fa-star SF"></i>
+                   <i class="fas fa-star SF"></i>
+                   <i class="fas fa-star SF"></i>
+                   <i class="fas fa-star SF"></i>
+                   <i class="fas fa-star SF"></i>
+                   <span class="text-muted SPF ms-2">24</span>
+                   <span class="text-muted SPF">Reviews</span>
+                   <p class="py-2 CSH PFS">$33.00 <del class="text-muted">$38.00</del></p>
+                   <p class="HP mb-0">BLUE Life Protection Formula - </p>
+                   <span class="text-muted">Adult Dog Food - Chicken & Brown Rice</span>
+                   
+                  
+                  
+                   <p class="card-text"></p>
+                   <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                 </div>
+               </div>
+             </a>
+          </div>
+          <div class="col-lg-3 col-sm-12 col-md-3 my-3">
+            <a href="single-product.html">
+
+              <div class="card SHW p-0" >
+                <img src="img/product2.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <span class="text-muted SPF ms-2">24</span>
+                  <span class="text-muted SPF">Reviews</span>
+                  <p class="py-2 PFS">$42.00</p>
+                  <p class="HP mb-0">Milk-Bone -</p>
+                  <span class="text-muted">Flavor Snacks Large Breed Dog Treat</span>
+                
+                  <p class="card-text"></p>
+                  <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                </div>
+              </div>
+            </a>
+          </div>
+            
+          <div class="col-lg-3 col-sm-12 col-md-3 my-3">
+
+            <a href="single-product.html">
+
+              <div class="card SHW p-0 ">
+                <img src="img/product3.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <span class="text-muted SPF ms-2">24</span>
+                  <span class="text-muted SPF">Reviews</span>
+                  <p class="py-2 PFS">$38.00</p>
+                  <p class="HP mb-0">Greenies -</p>
+                  <span class="text-muted">Teenie Dental Dog Treat Original</span>
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-3 col-sm-12 col-md-3 my-3">
+            <a href="single-product.html">
+
+              <div class="card SHW p-0 mx-auto" >
+                <img src="img/product4.png" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <i class="fas fa-star SF"></i>
+                  <span class="text-muted SPF ms-2">24</span>
+                  <span class="text-muted SPF">Reviews</span>
+                  <p class="py-2 PFS">$38.00</p>
+                  <p class="HP mb-0">BLUE Life Protection Formula -</p>
+                  <span class="text-muted">Healthy Weight Adult Dog Food - Chicken & Brown Rice</span>
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                </div>
+              </div>
+            </a>
+          </div>
+            
+         </div>
+        </div>
+
+        
+        
+      
+       
+         <div class="row justify-content-center align-items-center w-100">
+           <div class="col-lg-6 col-sm-12 col-md-6">
+             <h4>What Our <span class="D">Clients</span> Say About Us</h4>
+             <p class="text-muted w-75">Here are the most recent testimonials from our <br> clients about our kennel club, training & dog care service and more. Feel free to send  us your own testimonial using the contacts page.
+
+                </p>
+           </div>
+           <div class="col-lg-5 col-sm-12 col-md-6 pb-3">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div  class="carousel-inner">
+                <div class="carousel-item active ">
+                  <img  src="img/tilda-gradient.png" class="d-block w-100 IMH" alt="...">
+                  <div class="carousel-caption">
+                    <h5 class="FTS text-black-50">Thank you for training my dog!</h5>
+                    <p class="FTS text-body">I’ve been training with LabraDog for about 8 months now. They really do understand dogs and treats them as individuals, quickly finding out what really motivates them and brings out their natural abilities.</p>
+                    <div class="d-flex">
+                      <div>
+                        <img class="rounded-circle" src="img/Sliderimg3.jpg" alt="">
+                      </div>
+                      <div>
+                        <p class="ms-3 text-body">Georgia Barrett,</p>
+                        <p class="text-muted">Dog Owner</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="img/tilda-gradient.png" class="d-block w-100 IMH" alt="...">
+                  <div class="carousel-caption">
+                    <h5 class="FTS text-black-50">Your training techniques are great!</h5>
+                    <p class="FTS text-body">Your teaching techniques for dog training have been nothing short of outstanding.  I highly recommend their positive dog training!  LabraDog helped me understand my Charlie a lot better and I’m grateful for it.</p>
+                    <div class="d-flex">
+                      <div>
+                        <img class="rounded-circle" src="img/Sliderimg2.jpg" alt="">
+                      </div>
+                      <div>
+                        <p class="ms-3 text-body">Kate McMillan,</p>
+                        <p class="text-muted">Dog Owner</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="img/tilda-gradient.png" class="d-block w-100 IMH" alt="...">
+                  <div class="carousel-caption">
+                    <h5 class="FTS text-black-50">The Best Kennel Club in Our State!</h5>
+                    <p class="FTS text-body">LabraDog was recommended to me from our veterinarian, and I am so glad he did. Your team has taught me so much, and I would recommend your kennel club to everyone. Thank you!</p>
+                    <div class="d-flex">
+                      <div>
+                        <img class="rounded-circle" src="img/Sliderimg1.jpg" alt="">
+                      </div>
+                      <div>
+                        <p class="ms-3 text-body">Ann Williams,</p>
+                        <p class="text-muted">Dog Owner</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+           </div>
+           
+         </div>
+        
+        <div class="MS w-100">
+          <div class="d-flex justify-content-start container pb-1">
+            <div style="height: 45px; width: 45px; margin-top: -30px; z-index:1;" class="rounded-circle EC"></div>
+           </div>
+          <h2 class="text-center py-5">Photos Of Our <span class="D">Labradors</span></h2>
+          <div class="container">
+            <div class="row g-2" data-masonry='{"percentPosition": true }'>
+              <div class="col-sm-6 col-md-4 col-12">
+                <div class="bg-dark">
+
+                  <div class="box box-one DIMG1 OPC">
+                    
+                </div>
+                 
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-12">
+                <div class="bg-dark">
+
+                  <div class="box box-two DIMG2 OPC"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-12">
+                <div class="bg-dark">
+
+                  <div class="box box-three DIMG3 OPC"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-12">
+                <div class="bg-dark">
+
+                  <div class="box box-four DIMG4 OPC"></div>
+                </div>
+              </div>
+             
+              <div class="col-sm-6 col-md-4 col-12">
+                <div class="bg-dark">
+
+                  <div class="box box-seven DIMG7 OPC"></div>
+                </div>
+              </div>
+              
+              <div class="col-sm-6 col-md-4 col-12">
+                <div class="bg-dark">
+
+                  <div class="box box-eight DIMG8 OPC"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-start container pb-1">
+          <div style="height: 75px; width: 75px; margin-top: -30px; z-index:1;" class="rounded-circle EC"></div>
+         </div>
+         <div class="container">
+           <div class="row">
+           <div class="col-lg-4 col-sm-12 col-md-3">
+            <img class="logo-image-default" src="img/dog.png" alt="LabraDog" width="150" height="39">
+            <p style="font-size: 15px;" class="py-2 text-muted">Since 1922, our club has been <br> breeding, training, and caring for labrador retrievers.</p>
+           </div>
+           
+           <div class="col-lg-3 col-sm-12 col-md-3">
+             <h6 class="px-5">Categories</h6>
+             <div class="row">
+               <p class="col-6 my-0 FH">Home</p>
+               <p class="col-6 my-0 FH">Gallery</p>
+               <p class="col-6 my-0 FH">About Us</p>
+               <p class="col-6 my-0 FH">Shop</p>
+               <p class="col-6 my-0 FH">Services</p>
+               <p class="col-6 my-0 FH">Pages</p>
+               <p class="col-6 my-0 FH">Our Team</p>
+               <p class="col-6 my-0 FH">Contacts</p>
+             </div>
+            </div>
+            <div class="col-lg-2 col-sm-12 col-md-3">
+              <h6>Tags</h6>
+              <div class=" d-flex flex-wrap">
+                <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">NEWS</button>
+                <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">BREED</button>
+                <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">LABRADOR</button>
+                <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">PUPPIES</button>
+                <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">SHOP</button>
+                <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">TRAINING</button>
+                <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">CHAMPIONSHIP</button>
+                <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">RETRIEVER</button>
+              </div>
+            </div>
+           <div class="col-lg-3 col-sm-12 col-md-3">
+            <form class="rd-form rd-form-boxed-2 rd-mailform FPA my-2" data-form-output="footer-newsletter" data-form-type="contact" method="post" action="components/rd-mailform/rd-mailform.php" novalidate="novalidate">
+              <div class="form-group">
+                <input class="form-control py-2 form-control-sm form-control-has-validation form-control-last-child rounded-pill" type="email" name="email" placeholder="E-mail" data-constraints="@Email @Required" id="regula-generated-923938">
+                <span class="form-validation"></span>
+              </div>
+              <button style="width: 33px; height: 33px;" class="btn btn-sm rd-form-boxed-btn bg-warning FBC rounded-circle" type="submit"><span class="mdi-chevron-right"></span></button>
+            </form>
+           </div>
+          </div>
+         </div>
+         <div class="MS w-100 py-2">
+           <div class="container py-2">
+             <h6 class="text-muted  m-0">©2021 All rights reserved. <span class="FH">Privacy Policy</span></h6>
+           </div>
+         </div>
+
+        
+        
+       
+       
+       
+     
+       
+       
+    
+     
+   
+    
+   
+   
+     
+    
+
+          
+
+         
+
+        
+        
+          
+     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+     <script src="script/owl.carousel.min.js"></script>
+     <script src="script/carusel.js"></script>
+      
+    <script src="script/jS.js"></script>
+    
+  </body>
+
+</html>

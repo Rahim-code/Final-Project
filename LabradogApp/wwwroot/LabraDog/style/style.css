@@ -1,0 +1,372 @@
+.SI {
+  color: #ff7a00!important;
+}
+.tx-15{
+color: #151515;
+}
+body {
+  /* font-family: "Lato", sans-serif; */
+  font-family: 'Montserrat', sans-serif !important;
+}
+.H{
+  border-bottom: 3px solid white;
+  padding: 0 !important;
+  
+}
+.H:hover{
+  border-bottom: 3px solid orangered;
+}
+.photos{
+  background-image: url("../img/dog1.jpg");
+  background-position: right;
+  background-size: cover;
+  max-width: 100%;
+  height: 80vh;
+}
+.photos2{
+  background-image: url("../img/dog2.jpg");
+  background-position: right;
+  background-size: cover;
+  max-width: 100%;
+  height: 80vh;
+}
+.photos3{
+  background-image: url("../img/dog3.jpg");
+  background-position: right;
+  background-size: cover;
+  max-width: 100%;
+  height: 80vh;
+}
+.BT{
+  font-size: 1rem !important;
+  font-family: "Open Sans", sans-serif !important;
+  background-color:  #ff7a00 !important;
+}
+.TC{
+  color: #ff7a00 !important;
+}
+.EC{
+  background-color: #ff7a00 !important;
+}
+.OP{
+  color: #ff7a00 !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.WCA{
+  font-family: 'Montserrat', sans-serif !important;
+}
+.HD:hover{
+  color: #ff7a00 !important;
+}
+.RM:hover{
+  color: #ff7a00 !important;
+}
+.AF{
+  background-color:#f6f6f6 !important ;
+  width: 100%;
+ 
+}
+.D{
+  color: #ff7a00 !important;
+}
+.FF{
+  font-family: 'Montserrat', sans-serif !important;
+}
+.SUN{
+  color: #ff7a00 !important;
+  font-size: 50px !important;
+}
+@media (min-width: 576px) and (max-width: 767.98px) { 
+  
+ }
+ @media (max-width: 576px) { 
+  .SML{
+    font-size: .9rem !important;
+  }
+ }
+ ul {
+  list-style: none;
+  padding: 12px !important;
+}
+
+ul .L::before {
+  content: "•";  
+  color: #ff7a00;
+  font-weight: 900;
+  display: inline-block;
+  width: 1em; 
+  margin-left: -1em; 
+  
+  
+}
+.FAQ{
+  background-color: #f6f6f6 !important;
+  width: 100%;
+ 
+}
+.accordion1-button:focus{
+  border-color:  white !important;
+  box-shadow: none !important;
+  
+}
+.accordion1-button:not(.collapsed){
+  color: none !important;
+  box-shadow: white !important;
+  background-color: white !important;
+
+}
+.DBG{
+  background-image: url("../img/dog6.jpg") !important;
+  background-position: center;
+  background-size: cover;
+  
+}
+/* * {
+  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  } */
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(255, 249, 250);
+  }
+  
+  .wrapper {
+    width: 520px;
+    max-width: 100%;
+  }
+  
+  .progress-bar {
+    height: 12px;
+    width: 100%;
+    background-color:  #e5e5e5 !important;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 2px 0 10px inset rgba(0,0,0,0.2);
+    position: relative;
+  }
+  
+  * + .progress-bar {
+    margin-top: 2rem;
+  }
+  
+  .bar {
+    width: 0;
+    height: 100%;
+    background-color:  #ff7a00;
+    
+    /*Lollipop background gradient*/
+    /* background-image: linear-gradient(
+      -45deg, */
+      /* rgba(255, 255, 255, .2) 25%, */
+      /* transparent 25%,
+      transparent 50%, */
+      /* rgba(255, 255, 255, .2) 50%, */
+      /* rgba(255, 255, 255, .2) 75%, */
+      /* transparent 75%,
+      transparent */
+    /* ); */
+   
+    background-size: 30px 30px;
+    animation: move 2s linear infinite;
+    box-shadow: 2px 0 10px inset rgba(0,0,0,0.2);
+    transition: width 2s ease-out;
+  }
+  
+  /*Lollipop background gradient animation*/
+  @keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 30px 30px;
+    }
+  }
+  
+  .perc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: bold;
+  }
+  .DYK{
+    /* width: 100%; */
+    
+    background-color:#f6f6f6 !important ;
+  }
+  .SF{
+    font-size: 13px !important;
+    color: #FFD600 !important;
+  }
+  .SPF{
+    font-size: 13px !important;
+  }
+  .CSH{
+    color: #ff8800 !important; ;
+  }
+  .PFS{
+    font-size: 18px !important;
+  }
+  .HP:hover{
+    color: #ff7a00 !important; ;
+  }
+  .BRP:hover{
+    background-color:#ff7a00 !important ;
+    border: #ff7a00 !important;
+    color: white !important;
+  }
+  .BRP{
+    border:1px solid #ff7a00 !important;
+  }
+  .SHW:hover{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  
+  }
+  .SE{
+    background-color:#f6f6f6 !important ;
+    width: 100%;
+    
+  }
+  .card-img-overlay{
+    top: auto !important;
+  }
+  .LOCK{
+    color: #ff7a00 !important;
+  }
+  @media (max-width: 767.98px) { 
+   .FTS{
+     font-size: 11px !important;
+   }
+   }
+  @media (max-width: 1024.98px) { 
+    .IMH{
+      height: 30vh;
+    }
+    .FTS{
+      font-size: 18px;
+    }
+   }
+   
+   .box {
+     width: 100%;
+     background-color: #aaaead;
+   }
+   .box-one {
+     height: 300px;
+   }
+   .box-two {
+     height: 480px;
+   }
+   .box-three {
+     height: 200px;
+   }
+   .box-four,
+   .box-six,
+   .box-five {
+     height: 250px;
+   }
+   .box-seven,
+   .box-eight {
+     height: 400px;
+   }
+   body {
+     background-color: #545f5d;
+   }
+ .MS{
+   background-color: #f6f6f6 ;
+   
+ }
+ .DIMG1{
+   background-image: url("../img/dog9.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+ .DIMG2{
+   background-image: url("../img/dog10.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+ }
+ .DIMG3{
+   background-image: url("../img/dog11.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+ .DIMG7{
+  background-image: url("../img/dog12.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ }
+ .DIMG4{
+   background-image: url("../img/dog13.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+
+ }
+ .DIMG8{
+   background-image: url("../img/dog14.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+ .OPC:hover{
+   opacity: 0.7;
+   background-color: black ;
+   transition: all 0.2s ease-in-out;
+ }
+ .FH:hover{
+   color:#ff7a00 !important ;
+ }
+ .BC{
+   background-color: #ff7a00 !important;
+   color: white !important;
+   font-weight: 700 !important;
+   border: 1px solid #ff7a00 !important;
+ }
+ .BC:hover{
+   background-color: black !important;
+   border: 1px solid black !important;
+   
+ }
+ .FPA{
+   position: relative !important;
+  
+ }
+ .FPA>button{
+   position: absolute !important;
+   top: 3px;
+   right: 4px;
+   background-color: #ff7a00 !important;
+ }
+ .OPC:hover .DN{
+  display: block !important;
+  
+ }
+ 
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

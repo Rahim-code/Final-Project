@@ -1,0 +1,44 @@
+﻿
+@{ ViewData["Title"] = "Login";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div>
+    <div class="loginreg align-items-center d-flex justify-content-center mb-5">
+        <h1 class="AU">Forms</h1>
+    </div>
+    <div class="container">
+
+        <h4 class="RP text-center">Login Form</h4>
+        <form action="@Url.Action("login","auth")" method="post">
+
+            <p class="text-center text-muted">
+                <a class="text-danger">@TempData["Errors"]</a>
+            </p>
+            <div class="row justify-content-center px-3">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <input class="rounded-pill form-control form-control-sm form-control-has-validation form-control-last-child my-2 py-2" type="text" name="email" placeholder=" E-mail">
+                </div>
+
+            </div>
+            <div class="row justify-content-center px-3">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <input class="rounded-pill form-control form-control-sm form-control-has-validation form-control-last-child my-2 py-2" type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="row justify-content-center my-2">
+                <div class="col-lg-4 col-md-4 col-sm-8  d-flex justify-content-center">
+                    <button type="submit" class="badge rounded-pill  text-light  py-3 BT w-75 " style="border-width:0">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr>
+
+    @Html.Partial("Register")
+</div>
+
+
+
+
+
+
