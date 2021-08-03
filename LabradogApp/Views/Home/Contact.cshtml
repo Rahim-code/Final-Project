@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="GB align-items-center d-flex justify-content-center mb-5">
+    <h1 class="AU">Contacts</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h4 class="RP">Our Contacts</h4>
+            <p class="text-muted">
+                @ViewBag.Setting.Adress
+
+            </p>
+            <div class="d-flex align-items-center my-5">
+                <i class="bi bi-sun SUN GPC"></i>
+                <span class=" HP ms-4">
+                    @ViewBag.Setting.Phone
+                </span>
+            </div>
+            <div class="d-flex align-items-center my-5">
+                <i class="fas fa-paw SUN GPC"></i>
+                <span class="HP ms-4">
+                    @ViewBag.Setting.Email
+                </span>
+            </div>
+            <div class="d-flex align-items-center my-5">
+                <i class="bi bi-alarm SUN GPC"></i>
+                <span class="HP ms-4">
+                    @ViewBag.Setting.Adress <br> Azerbaijan
+                </span>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="shadow  bg-body rounded">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428534652079!2d49.85172681535453!3d40.37719397936966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d077c61fef3%3A0xfa4594c97092ca01!2sAF%20Business%20House!5e0!3m2!1sen!2s!4v1627739427643!5m2!1sen!2s" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-2 ">
+
+    <h4 class="RP text-center">Get In Touch</h4>
+    <form method="post" action="@Url.Action("contact","home")"> 
+        <div class="row  justify-content-center">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <input class="rounded-pill form-control form-control-sm form-control-has-validation form-control-last-child my-2 py-2" type="text" placeholder="Your name" name="Name" required>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+
+                <input class="rounded-pill form-control form-control-sm form-control-has-validation form-control-last-child my-2 py-2" type="text" placeholder=" E-mail" name="Email" required>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <input class="rounded-pill form-control form-control-sm form-control-has-validation form-control-last-child my-2 py-2" type="text" placeholder="Phone" name="Phone" required>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <input class="YEM form-control form-control-sm form-control-has-validation form-control-last-child my-2 py-5" type="text" placeholder="Message" name="Message" required>
+
+            </div>
+            <div class="row w-75 px-5 my-1">
+
+                <button type="submit" class="badge rounded-pill col col-lg-3 col-md-3  text-light px-4 py-3 BT mx-3">Send Message</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

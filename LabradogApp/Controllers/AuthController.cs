@@ -14,10 +14,14 @@ namespace LabradogApp.Controllers
 {
     public class AuthController : Controller
     {
+        private EfContext context = new EfContext();
+
+
         [Route("/login")]
         [HttpGet]
         public IActionResult Login()
         {
+            ViewBag.Setting = context.Settings.FirstOrDefault();
             return View();
         }
 

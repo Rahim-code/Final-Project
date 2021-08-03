@@ -97,9 +97,9 @@
 <span class="tx-15 ml-auto">Welcome @HttpContextAccessor.HttpContext.Session.GetString("name")</span>            }
             <div class="">
                 <i class="mx-1 fas fa-phone-alt SI"></i>
-                <span class="tx-15" style="margin-right: 20px">+1 800 559 35 48</span>
+                <span class="tx-15" style="margin-right: 20px">@ViewBag.Setting.Phone</span>
                 <i class="mx-1 far fa-envelope SI"></i>
-                <span class="tx-15">info@demolink.org</span>
+                <span class="tx-15">@ViewBag.Setting.Email</span>
             </div>
         </header>
     </div>
@@ -122,16 +122,16 @@
                         </ul>
                     </li>
                     <li class="nav-item mx-4">
-                        <a class="nav-link H" href="about.html">About us</a>
+                        <a class="nav-link H" href="/about">About</a>
                     </li>
                     <li class="nav-item dropdown mx-4">
-                        <a class="nav-link H" href="Services.html" aria-expanded="false">
+                        <a class="nav-link H" href="/services" aria-expanded="false">
                             Services
                         </a>
 
                     </li>
                     <li class="nav-item mx-4">
-                        <a class="nav-link H" href="ourTeam.html">Our team</a>
+                        <a class="nav-link H" href="/team">Team</a>
                     </li>
                     <li class="nav-item mx-4">
                         <a class="nav-link H" href="gallery.html">Gallery</a>
@@ -160,7 +160,7 @@
                         </ul>
                     </li>
                     <li class="nav-item mx-4">
-                        <a class="nav-link H" href="contacts.html">Contacts</a>
+                        <a class="nav-link H" href="/contact">Contacts</a>
                     </li>
 
                     @if (HttpContextAccessor.HttpContext.Session.GetInt32("id") == null)

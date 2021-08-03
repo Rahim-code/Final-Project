@@ -67,32 +67,18 @@
     <p class="text-muted">We provide high-quality dog care services and advice for a well-trained dog</p>
 </div>
 <div class="d-flex justify-content-center flex-wrap">
-    <div class="card mx-3 border-0" style="width: 20rem;">
+    @foreach (var item in ViewBag.Service)
+    {
+      <div class="card mx-3 border-0" style="width: 20rem;">
         <img src="~/Labradog/img/card1.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h4 style="font-size: 20px;" class="text-center HD">Training And Socialization</h4>
-            <p class="text-muted text-center">Training and socializing your dog will ensure their confident and happy adulthood.</p>
+            <h4 style="font-size: 20px;" class="text-center HD">@item.Title</h4>
+            <p class="text-muted text-center">@item.Main</p>
 
         </div>
 
     </div>
-
-    <div class="card mx-3 border-0" style="width: 20rem;">
-        <img src="~/Labradog/img/card2.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h4 style="font-size: 20px;" class="text-center HD">Breeds</h4>
-            <p class="text-muted text-center">Discover more facts and information about different Labrador Retriever breeds.</p>
-
-        </div>
-    </div>
-    <div class="card mx-3 border-0" style="width: 20rem;">
-        <img src="~/Labradog/img/card3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h4 style="font-size: 20px;" class="text-center HD">Dog Health</h4>
-            <p class="text-muted text-center">Detailed information about  vaccinations, diseases, and  other <br> health-related topics.</p>
-
-        </div>
-    </div>
+    }
 </div>
 
 <div class="AF w-100">
@@ -102,11 +88,10 @@
     <div class="container py-5 d-flex justify-content-center flex-wrap">
         <div class="DDC py-5">
             <h2 class="FF">Daily <span class="D">Dog</span> Care</h2>
-            <p class="text-muted">Our unique dog care service offers full-service pet  care for pet owners <br> that  demand loving care for their pets and confidence <br> that they leave their pets in a safe environment.</p>
-            <p class="text-muted">We can guarantee a safe, secure and caring environment for your <br> pet for both long and short term.</p>
+            @Html.Raw(ViewBag.Setting.DogCare)
             <div class="d-flex">
                 <div class="">
-                    <i class="bi bi-sun SUN"></i> <p class="text-muted">
+                    <i class="fas fa-sun SUN"></i> <p class="text-muted">
                         Daily <br>
                         Walking
                     </p>
@@ -120,7 +105,7 @@
                 </div>
 
                 <div class="">
-                    <i class="bi bi-alarm SUN"></i><p class="text-muted">
+                    <i class="fas fa-bell SUN"></i><p class="text-muted">
                         Saving <br>
                         Your Time
                     </p>
@@ -130,7 +115,7 @@
         </div>
         <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
 
-            <iframe width="100%" height="350" src="https://www.youtube.com/embed/tfff10zs_Lg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="350" src="@ViewBag.Setting.YoutubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         </div>
     </div>
@@ -149,29 +134,29 @@
         <div class=""><img class="w-100" src="~/Labradog/img/dog4.jpg" alt=""></div>
         <div class="DDC py-5">
             <h2 class="FF SML">Some Facts About The <span class="D">Labrador <br> Retriever</span> Breed</h2>
-            <p class="text-muted SML">The sweet-faced, lovable Labrador Retriever is America’s most popular dog breed. <br> Labs are friendly, outgoing, and high-spirited companions who have a lot of <br> affection to suit a family looking for a medium dog.</p>
+          @Html.Raw(ViewBag.Setting.LabradorDesc)
             <p class="SML"><span style="font-weight: 500 !important; color: black !important;">Temperament:</span> <span class="text-muted">Friendly, Active, Outgoing</span></p>
             <p class="SML">
                 <span style="font-weight: 400;">
                     Breed Popularity:
-                </span> <span class="text-muted">Ranks 1 of 200</span>
+                </span> <span class="text-muted">@ViewBag.Setting.Temprament</span>
             </p>
             <p class="SML">
                 <span style="font-weight: 400;">
                     Height:
-                </span> <span class="text-muted">22.5-24.5 inches (male), 21.5-23.5 inches (female)</span>
+                </span> <span class="text-muted">@ViewBag.Setting.Height</span>
             </p>
             <p class="SML">
                 <span style="font-weight: 400;">
                     Weight:
                 </span> <span class="text-muted">
-                    65-80 pounds (male), 55-70 pounds (female)
+                   @ViewBag.Setting.Weight
                 </span>
             </p>
             <p class="SML">
                 <span style="font-weight: 400;">
                     Life Expectancy:
-                </span> <span class="text-muted">10-12 years</span>
+                </span> <span class="text-muted">@ViewBag.Setting.LifeExp</span>
             </p>
 
 
@@ -192,12 +177,7 @@
 
         <div class="DDC py-5 ">
             <h2>Breed History</h2>
-            <p class="text-muted">The Labrador Retriever is the traditional waterdog of Newfoundland, long <br> employed as a duck retriever and fisherman’s mate. The breed began its steady <br> climb to supreme popularity in the early 1800s, when Labs were spotted by <br> English nobles visiting Canada.</p>
-            <ul>
-                <li class="text-muted my-2 L">In 1892 two 'liver color' Labradors were born at Buccleuch's kennel.</li>
-                <li class="text-muted my-2 L">In 1899, the first recorded yellow Labrador was born.</li>
-                <li class="text-muted my-2 L">In 1903 the breed was recognized by the Kennel Club in England.</li>
-            </ul>
+           @Html.Raw(ViewBag.Setting.History)
             <div class="container"><span class="badge rounded-pill  text-light px-5 py-4 BT">Choose A Puppy</span></div>
         </div>
         <div class=""><img class="w-100 my-5" src="~/Labradog/img/dog5.jpg" alt=""></div>
@@ -211,92 +191,28 @@
     <h3 class="text-center py-5">FAQs About <span class="D">LabraDog</span> Services</h3>
     <div class="container w-100">
         <div class="row w-100">
-            <div class="accordion col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
-                <div class="accordion-item ">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What are the advantages of purchasing a template?
+            @foreach (var item in ViewBag.Fag)
+            {
+                <div class="accordion col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
+                    <div class="accordion-item ">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                @item.Question
 
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p class="text-muted">The major advantage is price: You get a high quality design for just $20-$70. You don’t have to hire a web designer or web design studio. Second advantage is time frame.</p>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="text-muted">
+                                    @item.Answer
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            In what formats are your templates available and are they compatible with modern software?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p class="text-muted">Website templates are available in Photoshop and HTML formats. Fonts are included with the Photoshop file. In most templates, HTML is compatible with Adobe® Dreamweaver® and Microsoft® FrontPage®.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What do I receive when I order a template from Zemez?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p class="text-muted">After you complete the payment via our secure form you will receive the instructions for downloading the product. The source files in the download package can vary based on the type of the product you have purchased.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What is a unique/non-unique purchase?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p class="text-muted">Non-exclusive purchase means that other people can buy the template you have chosen some time later. Exclusive or unique purchase guarantees that you are the last person to buy this template. After an exclusive purchase occurs the template is being permanently removed from the sales directory and will never be available to other customers again. Only you and people who bought the template before you will own it.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Do you provide any scripts with your templates or could you do some custom programming?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p class="text-muted">Our templates do not include any additional scripts. Newsletter subscriptions, search fields, forums, image galleries (in HTML versions of Flash products) are inactive. Basic scripts can be easily added at www.zemez.io If you are not sure that the element you’re interested in is active please contact our Support Chat for clarification.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion  col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What am I allowed and/or not allowed to do with the templates you offer?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p class="text-muted"> You may build a website using the template in any way you like. You may not resell or redistribute templates (like we do); claim intellectual or exclusive ownership to any of our products, modified or unmodified. All products are property of content providing companies and individuals. You are also not allowed to make more than one project using the same template (you have to purchase the same template once more in order to make another project with the same design).</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            }
+
+         </div>
     </div>
     <div class="d-flex justify-content-start container mt-5">
         <div style="height: 45px; width: 45px; margin-top: -5px; z-index:1;" class="rounded-circle EC"></div>
@@ -307,34 +223,24 @@
         <div class="col-lg-6 col-md-6 col-sm-12"></div>
         <div class="col-lg-6 col-md-6 col-sm-12">
             <h3 class="py-3">Why Is A <span class="D">Labrador Retriever</span> The Best Breed For You?</h3>
-            <p class="text-muted"> This lovable breed has so many great attributes that it’s hard to narrow down the best. It wasn’t easy, but we did it. Here are the top 4 reasons why you should have a Labrador Retriever.</p>
+            @Html.Raw(ViewBag.Setting.WhyBestDesc)
             <div class="wrapper">
                 <p class="mt-4 mb-0">Energy level</p>
-                <div class="progress-bar mt-0">
-
-                    <div class="bar" data-size="20">
-                        <span class="perc"></span>
-                    </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @ViewBag.Setting.EnergyLevel%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
                 </div>
                 <p class="mt-4 mb-0">Relations with children</p>
-                <div class="progress-bar mt-0">
-                    <div class="bar" data-size="40">
-                        <span class="perc"></span>
-                    </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @ViewBag.Setting.RelationChild%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p class="mb-0 mt-4">The ability to train</p>
-                <div class="progress-bar mt-0">
-
-                    <div class="bar" data-size="60">
-                        <span class="perc"></span>
-                    </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @ViewBag.Setting.TrainAbility%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p class="mt-4 mb-0">The ease of care</p>
-                <div class="progress-bar mt-0">
-
-                    <div class="bar" data-size="80">
-                        <span class="perc"></span>
-                    </div>
+               <div class="progress">
+                   <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @ViewBag.Setting.EaseOfCare%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
 
             </div>
@@ -351,33 +257,19 @@
         <h2 class="text-center pt-5">Did You Know?</h2>
         <p class="text-muted text-center">These are some of the most interesting facts about Labrador Retriever  <br> breed that you may have not heard about.</p>
         <div class="owl-carousel container py-4">
-            <div class="card rounded mx-1 shadow p-3 mb-5 bg-body rounded" style="width: 19rem">
-                <div class="card-body">
-                    <p style="font-weight: 400;" class="card-text">
-                        <i style="color:#ff7a00;" class="fas fa-quote-left"></i>
-                        The third Earl of Malmesbury was the first person to call the dogs  Labradors.
-                    </p>
+            @foreach (var item in ViewBag.DidYouNow)
+            {
+                <div class="card rounded mx-1 shadow p-3 mb-5 bg-body rounded" style="width: 19rem">
+                    <div class="card-body">
+                        <p style="font-weight: 400;" class="card-text">
+                            <i style="color:#ff7a00;" class="fas fa-quote-left"></i>
+                            @item.Topic
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="card rounded mx-1 shadow p-3 mb-5 bg-body rounded" style="width: 19rem">
-                <div class="card-body ">
 
+            }
 
-                    <p style="font-weight: 400;" class="card-text">
-                        <i style="color:#ff7a00;" class="fas fa-quote-left"></i>
-                        Their coat has two layers: a short, thick topcoat and a relatively water-resistant undercoat.
-                    </p>
-                </div>
-            </div>
-            <div class="card rounded mx-1 shadow p-3 mb-5 bg-body rounded" style="width: 19rem">
-                <div class="card-body ">
-
-                    <p style="font-weight: 400;" class="card-text">
-                        <i style="color:#ff7a00;" class="fas fa-quote-left"></i>
-                        The breed has taken the top spot in its rankings of most popular breeds for 24 consecutive years.
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
     <div class="d-flex justify-content-end container mt-5">
@@ -388,7 +280,9 @@
 <div class="container w-100 ">
     <h4 class="text-center">Popular Products</h4>
     <div class="row w-100 justify-content-center mx-auto">
-        <div class="col-lg-3 col-sm-12 col-md-3 my-3">
+        @foreach (var item in ViewBag.Product)
+        {
+          <div class="col-lg-3 col-sm-12 col-md-3 my-3">
             <a href="single-product.html">
 
                 <div class="card SHW p-0">
@@ -401,9 +295,9 @@
                         <i class="fas fa-star SF"></i>
                         <span class="text-muted SPF ms-2">24</span>
                         <span class="text-muted SPF">Reviews</span>
-                        <p class="py-2 CSH PFS">$33.00 <del class="text-muted">$38.00</del></p>
-                        <p class="HP mb-0">BLUE Life Protection Formula - </p>
-                        <span class="text-muted">Adult Dog Food - Chicken & Brown Rice</span>
+                        <p class="py-2 CSH PFS">@item.DiscountPrice AZN <del class="text-muted">@item.Price AZN</del></p>
+                        <p class="HP mb-0">@item.Name - </p>
+                        <span class="text-muted">@item.Title</span>
 
 
 
@@ -413,78 +307,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-lg-3 col-sm-12 col-md-3 my-3">
-            <a href="single-product.html">
-
-                <div class="card SHW p-0">
-                    <img src="~/Labradog/img/product2.png" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <span class="text-muted SPF ms-2">24</span>
-                        <span class="text-muted SPF">Reviews</span>
-                        <p class="py-2 PFS">$42.00</p>
-                        <p class="HP mb-0">Milk-Bone -</p>
-                        <span class="text-muted">Flavor Snacks Large Breed Dog Treat</span>
-
-                        <p class="card-text"></p>
-                        <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-sm-12 col-md-3 my-3">
-
-            <a href="single-product.html">
-
-                <div class="card SHW p-0 ">
-                    <img src="~/Labradog/img/product3.png" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <span class="text-muted SPF ms-2">24</span>
-                        <span class="text-muted SPF">Reviews</span>
-                        <p class="py-2 PFS">$38.00</p>
-                        <p class="HP mb-0">Greenies -</p>
-                        <span class="text-muted">Teenie Dental Dog Treat Original</span>
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
-                        <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-12 col-md-3 my-3">
-            <a href="single-product.html">
-
-                <div class="card SHW p-0 mx-auto">
-                    <img src="~/Labradog/img/product4.png" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <span class="text-muted SPF ms-2">24</span>
-                        <span class="text-muted SPF">Reviews</span>
-                        <p class="py-2 PFS">$38.00</p>
-                        <p class="HP mb-0">BLUE Life Protection Formula -</p>
-                        <span class="text-muted">Healthy Weight Adult Dog Food - Chicken & Brown Rice</span>
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
-                        <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
-                    </div>
-                </div>
-            </a>
-        </div>
-
+        }
     </div>
 </div>
 

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-dog align-items-center d-flex justify-content-center">
+    <h1 class="AU">Services #1</h1>
+</div>
+
+<div class=" w-100">
+    <div class="container text-center py-5">
+        <h1 class="WCA">We Care About <span class="OP">Our Pets</span> Since Their Birth</h1>
+        <p class="text-muted">We provide high-quality dog care services and advice for a well-trained dog</p>
+    </div>
+    <div class="d-flex justify-content-center flex-wrap">
+        @foreach (var item in ViewBag.Service)
+        {
+            <div class="card mx-3 border-0" style="width: 20rem;">
+                <img src="~/Labradog/img/card1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 style="font-size: 20px;" class="text-center HD">@item.Title</h4>
+                    <p class="text-muted text-center">@item.Main</p>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+<div class="FAQ w-100">
+    <div class="d-flex justify-content-end container">
+        <div style="height: 75px; width: 75px; margin-top: -30px; z-index:1;" class="rounded-circle EC"></div>
+    </div>
+    <h3 style="font-family: 'Montserrat', sans-serif !important;" class="text-center py-5">FAQs About <span class="D">LabraDog</span> Services</h3>
+    <div class="container w-100">
+        <div class="row w-100">
+            @foreach (var item in ViewBag.Fag)
+            {
+                <div class="accordion col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
+                    <div class="accordion-item ">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button RM accordion1-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                @item.Question
+
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="text-muted">
+                                    @item.Answer
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="d-flex justify-content-start container mt-5">
+        <div style="height: 45px; width: 45px; margin-top: -5px; z-index:1;" class="rounded-circle EC"></div>
+    </div>
+</div>

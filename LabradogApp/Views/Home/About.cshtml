@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-dog align-items-center d-flex justify-content-center">
+    <h1 class="AU">About Us #1</h1>
+</div>
+
+
+<div class="container py-5 d-flex justify-content-center flex-wrap">
+    <div class="DDC py-5">
+        <h2 class="ABC">About Us</h2>
+         @Html.Raw(ViewBag.Setting.DogCare)
+        <div class="d-flex">
+            <div class="">
+                <i class="fas fa-sun SUN"></i> <p class="">
+                    Daily <br>
+                    Walking
+                </p>
+            </div>
+
+            <div class="mx-5 py-2">
+                <i class="fas fa-paw SUN"></i> <p class=" py-3">
+                    Regular <br>
+                    Feeding
+                </p>
+            </div>
+
+            <div class="">
+                <i class="fas fa-calendar SUN"></i><p class="">
+                    Saving <br>
+                    Your Time
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
+        <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
+
+            <iframe width="100%" height="350" src="@ViewBag.Setting.YoutubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="d-flex justify-content-start container w-100">
+    <div style="height: 45px; width: 45px; margin-top: -20px; z-index:1;" class="rounded-circle EC"></div>
+</div>
+<div class="AF w-100">
+    <div class="container text-center py-5">
+        <h1 class="WCA">We Care About <span class="OP">Our Pets</span> Since Their Birth</h1>
+        <p class="text-muted">We provide high-quality dog care services and advice for a well-trained dog</p>
+    </div>
+    <div class="d-flex justify-content-center flex-wrap">
+        @foreach (var item in ViewBag.Service)
+        {
+            <div class="card mx-3 border-0" style="width: 20rem;">
+                <img src="~/Labradog/img/card1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 style="font-size: 20px;" class="text-center HD">@item.Title</h4>
+                    <p class="text-muted text-center">@item.Main</p>
+
+                </div>
+
+            </div>
+        }
+    </div>
+
+</div>
+<div class="d-flex justify-content-end container w-100">
+    <div style="height: 75px; width: 75px; margin-top: -20px; z-index:1;" class="rounded-circle EC"></div>
+</div>
+<div class="container">
+    <h4 class="WCA">Our Wonderful Team</h4>
+    <p class="text-muted WCA">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam <br> sollicitudin facilisis neque luctus lobortis.
+    </p>
+    <div class="row">
+        @foreach (var item in ViewBag.Staff)
+        {
+           <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card mb-3 border-0" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-6 col-sm-12 d-flex justify-content-center">
+                        <img src="~/LabraDog/img/person1.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="card-body ">
+                            <h5 class="card-title HD text-center">@item.FullName</h5>
+                            <h6 class="D text-center">@item.Job</h6>
+                            <p class="card-text text-center"><small class="text-muted">@item.Info</small></p>
+                            <p class="NH text-center"><i class="mx-1 fas fa-phone-alt SI"></i>@item.Phone</p>
+                            <p class="NH text-center"> <i class="mx-1 far fa-envelope SI"></i>@item.Email</p>
+                            <p class="d-flex justify-content-center">
+                                <i class="mx-3 fab fa-facebook-f NH"></i>
+                                <i class="mx-3 fab fa-twitter NH"></i>
+                                <i class="mx-3 fab fa-instagram NH "></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+<div class="GTLN py-5">
+    <h4 class="text-center the ">Get The Latest News</h4>
+    <p class="text-muted text-center ">Receive a 10% discount code via email when you sign up for our news & updates.</p>
+    <form class="rd-form rd-form-boxed-2 rd-mailform FPA my-2 w-50 mx-auto w-xs-75" data-form-output="footer-newsletter" data-form-type="contact" method="post" action="components/rd-mailform/rd-mailform.php" novalidate="novalidate">
+        <div class="form-group">
+            <input class="form-control form-control-sm form-control-has-validation form-control-last-child rounded-pill p-3" type="email" name="email" placeholder="E-mail" id="regula-generated-923938">
+            <span class="form-validation"></span>
+        </div>
+        <button style="width: 50px; height: 50px;" class="btn btn-sm rd-form-boxed-btn bg-warning FBC rounded-circle" type="submit"><span class="mdi-chevron-right"></span></button>
+    </form>
+</div>
