@@ -1,34 +1,40 @@
-﻿using LabraDog.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using LabraDog.Models.EntityFramework;
 using LabradogApp.Models;
+using LabraDog.DAL;
+using LabradogApp.ViewModels;
 
 namespace LabradogApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private EfContext context = new EfContext();
+        private readonly AppDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(AppDbContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
-            ViewBag.Setting = context.Settings.FirstOrDefault();
-            ViewBag.Fag = context.Fags.OrderByDescending(f => f.Id).Take(6);
-            ViewBag.DidYouNow = context.DidYouNows.ToList();
-            ViewBag.Service = context.Services.OrderByDescending(s => s.Id).Take(3);
-            ViewBag.Product = context.Products.OrderByDescending(s => s.Id).Take(4);
-            return View();
+            HomeViewModel homeVM = new HomeViewModel
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Fags = _context.Fags.OrderByDescending(x => x.Id).Take(6).ToList(),
+                DidYouNows = _context.DidYouNows.ToList().ToList(),
+                Services = _context.Services.OrderByDescending(x => x.Id).Take(3).ToList(),
+                Products = _context.Products.OrderByDescending(x => x.Id).Take(4).ToList(),
+            };
+            return View(homeVM);
         }
 
         public IActionResult Privacy()
@@ -40,16 +46,19 @@ namespace LabradogApp.Controllers
         [Route("/contact")]
         public IActionResult Contact()
         {
-            ViewBag.Setting = context.Settings.FirstOrDefault();
-            return View();
+            HomeViewModel homeVM = new HomeViewModel
+            {
+                 Setting = _context.Settings.FirstOrDefault(),
+            };
+            return View(homeVM);
         }
 
         [HttpPost]
         [Route("/contact")]
         public IActionResult Contact(ContactUs contactUs)
         {
-            context.ContactUs.Add(contactUs);
-            context.SaveChanges();
+            _context.ContactUs.Add(contactUs);
+            _context.SaveChanges();
             return RedirectToAction("contact","home");
         }
 
@@ -58,29 +67,40 @@ namespace LabradogApp.Controllers
         [Route("/about")]
         public IActionResult About()
         {
-            ViewBag.Setting = context.Settings.FirstOrDefault();
-            ViewBag.Service = context.Services.OrderByDescending(s => s.Id).Take(3);
-            ViewBag.Staff = context.Teams.OrderByDescending(t => t.Id).Take(4);
-            return View();
+            HomeViewModel homeVM = new HomeViewModel
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Teams = _context.Teams.OrderByDescending(x => x.Id).Take(4).ToList(),
+                Services = _context.Services.OrderByDescending(x => x.Id).Take(3).ToList(),
+            };
+            return View(homeVM);
         }
 
         [HttpGet]
         [Route("/services")]
         public IActionResult Services()
         {
-            ViewBag.Setting = context.Settings.FirstOrDefault();
-            ViewBag.Service = context.Services.OrderByDescending(i=>i.Id).Take(3);
-            ViewBag.Fag = context.Fags.OrderByDescending(t => t.Id).Take(8);
-            return View();
+            HomeViewModel homeVM = new HomeViewModel
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Teams = _context.Teams.OrderByDescending(x => x.Id).Take(4).ToList(),
+                Services = _context.Services.OrderByDescending(x=>x.Id).ToList(),
+                Fags = _context.Fags.OrderByDescending(x => x.Id).Take(8).ToList(),
+            };
+            return View(homeVM);
         }
 
         [HttpGet]
         [Route("/team")]
         public IActionResult Team()
         {
-            ViewBag.Setting = context.Settings.FirstOrDefault();
-            ViewBag.Team = context.Teams.ToList();
-            return View();
+            HomeViewModel homeVM = new HomeViewModel
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Teams = _context.Teams.OrderByDescending(x => x.Id).ToList(),
+            };
+            return View(homeVM);
         }
+
     }
 }

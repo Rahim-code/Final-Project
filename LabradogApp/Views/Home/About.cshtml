@@ -1,4 +1,4 @@
-﻿
+﻿@model LabradogApp.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,7 +12,7 @@
 <div class="container py-5 d-flex justify-content-center flex-wrap">
     <div class="DDC py-5">
         <h2 class="ABC">About Us</h2>
-         @Html.Raw(ViewBag.Setting.DogCare)
+        @Html.Raw(Model.Setting.DogCare)
         <div class="d-flex">
             <div class="">
                 <i class="fas fa-sun SUN"></i> <p class="">
@@ -40,7 +40,7 @@
     <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
         <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
 
-            <iframe width="100%" height="350" src="@ViewBag.Setting.YoutubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="350" src="@Model.Setting.YoutubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         </div>
     </div>
@@ -57,7 +57,7 @@
         <p class="text-muted">We provide high-quality dog care services and advice for a well-trained dog</p>
     </div>
     <div class="d-flex justify-content-center flex-wrap">
-        @foreach (var item in ViewBag.Service)
+        @foreach (var item in Model.Services)
         {
             <div class="card mx-3 border-0" style="width: 20rem;">
                 <img src="~/Labradog/img/card1.jpg" class="card-img-top" alt="...">
@@ -81,31 +81,31 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam <br> sollicitudin facilisis neque luctus lobortis.
     </p>
     <div class="row">
-        @foreach (var item in ViewBag.Staff)
+        @foreach (var item in Model.Teams)
         {
-           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="card mb-3 border-0" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-6 col-sm-12 d-flex justify-content-center">
-                        <img src="~/LabraDog/img/person1.jpg" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="card-body ">
-                            <h5 class="card-title HD text-center">@item.FullName</h5>
-                            <h6 class="D text-center">@item.Job</h6>
-                            <p class="card-text text-center"><small class="text-muted">@item.Info</small></p>
-                            <p class="NH text-center"><i class="mx-1 fas fa-phone-alt SI"></i>@item.Phone</p>
-                            <p class="NH text-center"> <i class="mx-1 far fa-envelope SI"></i>@item.Email</p>
-                            <p class="d-flex justify-content-center">
-                                <i class="mx-3 fab fa-facebook-f NH"></i>
-                                <i class="mx-3 fab fa-twitter NH"></i>
-                                <i class="mx-3 fab fa-instagram NH "></i>
-                            </p>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="card mb-3 border-0" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-sm-12 d-flex justify-content-center">
+                            <img src="~/LabraDog/img/person1.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="card-body ">
+                                <h5 class="card-title HD text-center">@item.FullName</h5>
+                                <h6 class="D text-center">@item.Job</h6>
+                                <p class="card-text text-center"><small class="text-muted">@item.Info</small></p>
+                                <p class="NH text-center"><i class="mx-1 fas fa-phone-alt SI"></i>@item.Phone</p>
+                                <p class="NH text-center"> <i class="mx-1 far fa-envelope SI"></i>@item.Email</p>
+                                <p class="d-flex justify-content-center">
+                                    <i class="mx-3 fab fa-facebook-f NH"></i>
+                                    <i class="mx-3 fab fa-twitter NH"></i>
+                                    <i class="mx-3 fab fa-instagram NH "></i>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         }
     </div>
 </div>

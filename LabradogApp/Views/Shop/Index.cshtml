@@ -1,0 +1,97 @@
+﻿@model LabradogApp.ViewModels.ShopListViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SP align-items-center d-flex justify-content-center mb-5">
+    <h1 class="AU">Grid Shop</h1>
+</div>
+
+<div class="container">
+    <d class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+
+            <form style="width: 100% !important;" class="rd-form rd-form-boxed position-relative" action="search-results.html" method="GET" data-rd-search="">
+                <div class="form-group">
+                    <input style="height: 100% !important;" class="form-control form-control-sm rounded-pill" type="text" placeholder="Search the shop" autocomplete="off" name="s">
+                    <i class="fas fa-search position-absolute end-0 top-0 p-2"></i>
+                </div>
+            </form>
+            <hr>
+            <p class="fs-5">Categories</p>
+            @foreach (var item in Model.Categories)
+            {
+              <div class="form-check my-1 CC">
+                <input style="width: 25px !important; height: 25px !important;" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label p-1" for="flexCheckDefault">
+                    @item.Name
+                </label>
+            </div>
+            }
+            <label for="customRange1" class="form-label pt-2 ">Filter By Price</label>
+            <input type="range" class="form-range" id="customRange1">
+            <div class="d-flex justify-content-between mt-2">
+                <span class="badge rounded-pill text-light px-4 py-3 BT">Filter</span>
+                <p class="pt-2">
+                    Price:
+
+                    $
+                    20
+
+                    -
+
+                    $
+                    50
+                </p>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.Products.Take(3))
+                {
+                <div class="card mb-3 border-0" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4 py-3">
+                            <img src="~/LabraDog/img/product3.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+
+                                <p class="card-text"><span class="HP">@item.Name</span><span class="text-muted"> - @item.Category.Name</span></p>
+                                <p class="card-text"><small class="text-dark">@item.DiscountPrice</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12">
+            <div class="row">
+                @foreach (var item in Model.Products)
+                {
+                    <div class="col-lg-4 col-sm-12 col-md-4 my-3">
+                        <a href="/shop/shopdetail/@item.Id">
+                            <div class="card SHW p-0">
+                                <img src="~/LabraDog/img/product1.png" class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-star SF"></i>
+                                    <i class="fas fa-star SF"></i>
+                                    <i class="fas fa-star SF"></i>
+                                    <i class="fas fa-star SF"></i>
+                                    <i class="fas fa-star SF"></i>
+                                    <p class="py-2 CSH PFS">@item.DiscountPrice <del class="text-muted">@item.Price</del></p>
+                                    <p class="HP mb-0">@item.Name - </p>
+                                    <span class="text-muted">@item.Category.Name</span>
+                                    <p class="card-text"></p>
+                                    <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+</div>
+      </div>
+    </div>
+

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace LabradogApp.Models
 {
-    public class ContactUs
+    public class ContactUs:BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }

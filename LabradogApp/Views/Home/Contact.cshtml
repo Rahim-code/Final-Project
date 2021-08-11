@@ -1,4 +1,4 @@
-﻿
+﻿@model LabradogApp.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,25 +13,25 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <h4 class="RP">Our Contacts</h4>
             <p class="text-muted">
-                @ViewBag.Setting.Adress
+                @Model.Setting.Adress
 
             </p>
             <div class="d-flex align-items-center my-5">
                 <i class="bi bi-sun SUN GPC"></i>
                 <span class=" HP ms-4">
-                    @ViewBag.Setting.Phone
+                    @Model.Setting.Phone
                 </span>
             </div>
             <div class="d-flex align-items-center my-5">
                 <i class="fas fa-paw SUN GPC"></i>
                 <span class="HP ms-4">
-                    @ViewBag.Setting.Email
+                    @Model.Setting.Email
                 </span>
             </div>
             <div class="d-flex align-items-center my-5">
                 <i class="bi bi-alarm SUN GPC"></i>
                 <span class="HP ms-4">
-                    @ViewBag.Setting.Adress <br> Azerbaijan
+                    @Model.Setting.Adress <br> Azerbaijan
                 </span>
             </div>
         </div>
@@ -46,7 +46,7 @@
 <div class="container my-2 ">
 
     <h4 class="RP text-center">Get In Touch</h4>
-    <form method="post" action="@Url.Action("contact","home")"> 
+    <form method="post" action="@Url.Action("contact","home")">
         <div class="row  justify-content-center">
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <input class="rounded-pill form-control form-control-sm form-control-has-validation form-control-last-child my-2 py-2" type="text" placeholder="Your name" name="Name" required>

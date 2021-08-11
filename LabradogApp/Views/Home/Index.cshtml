@@ -1,4 +1,4 @@
-﻿
+﻿@model LabradogApp.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -67,17 +67,17 @@
     <p class="text-muted">We provide high-quality dog care services and advice for a well-trained dog</p>
 </div>
 <div class="d-flex justify-content-center flex-wrap">
-    @foreach (var item in ViewBag.Service)
+    @foreach (var item in Model.Services)
     {
-      <div class="card mx-3 border-0" style="width: 20rem;">
-        <img src="~/Labradog/img/card1.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h4 style="font-size: 20px;" class="text-center HD">@item.Title</h4>
-            <p class="text-muted text-center">@item.Main</p>
+        <div class="card mx-3 border-0" style="width: 20rem;">
+            <img src="~/Labradog/img/card1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4 style="font-size: 20px;" class="text-center HD">@item?.Title</h4>
+                <p class="text-muted text-center">@item?.Main</p>
+
+            </div>
 
         </div>
-
-    </div>
     }
 </div>
 
@@ -88,7 +88,7 @@
     <div class="container py-5 d-flex justify-content-center flex-wrap">
         <div class="DDC py-5">
             <h2 class="FF">Daily <span class="D">Dog</span> Care</h2>
-            @Html.Raw(ViewBag.Setting.DogCare)
+            @Html.Raw(Model.Setting.DogCare)
             <div class="d-flex">
                 <div class="">
                     <i class="fas fa-sun SUN"></i> <p class="text-muted">
@@ -115,7 +115,7 @@
         </div>
         <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
 
-            <iframe width="100%" height="350" src="@ViewBag.Setting.YoutubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="350" src="@Model.Setting.YoutubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         </div>
     </div>
@@ -134,29 +134,29 @@
         <div class=""><img class="w-100" src="~/Labradog/img/dog4.jpg" alt=""></div>
         <div class="DDC py-5">
             <h2 class="FF SML">Some Facts About The <span class="D">Labrador <br> Retriever</span> Breed</h2>
-          @Html.Raw(ViewBag.Setting.LabradorDesc)
+            @Html.Raw(Model.Setting.LabradorDesc)
             <p class="SML"><span style="font-weight: 500 !important; color: black !important;">Temperament:</span> <span class="text-muted">Friendly, Active, Outgoing</span></p>
             <p class="SML">
                 <span style="font-weight: 400;">
                     Breed Popularity:
-                </span> <span class="text-muted">@ViewBag.Setting.Temprament</span>
+                </span> <span class="text-muted">@Model.Setting.Temprament</span>
             </p>
             <p class="SML">
                 <span style="font-weight: 400;">
                     Height:
-                </span> <span class="text-muted">@ViewBag.Setting.Height</span>
+                </span> <span class="text-muted">@Model.Setting.Height</span>
             </p>
             <p class="SML">
                 <span style="font-weight: 400;">
                     Weight:
                 </span> <span class="text-muted">
-                   @ViewBag.Setting.Weight
+                    @Model.Setting.Weight
                 </span>
             </p>
             <p class="SML">
                 <span style="font-weight: 400;">
                     Life Expectancy:
-                </span> <span class="text-muted">@ViewBag.Setting.LifeExp</span>
+                </span> <span class="text-muted">@Model.Setting.LifeExp</span>
             </p>
 
 
@@ -177,7 +177,7 @@
 
         <div class="DDC py-5 ">
             <h2>Breed History</h2>
-           @Html.Raw(ViewBag.Setting.History)
+            @Html.Raw(Model.Setting.History)
             <div class="container"><span class="badge rounded-pill  text-light px-5 py-4 BT">Choose A Puppy</span></div>
         </div>
         <div class=""><img class="w-100 my-5" src="~/Labradog/img/dog5.jpg" alt=""></div>
@@ -191,7 +191,7 @@
     <h3 class="text-center py-5">FAQs About <span class="D">LabraDog</span> Services</h3>
     <div class="container w-100">
         <div class="row w-100">
-            @foreach (var item in ViewBag.Fag)
+            @foreach (var item in Model.Fags)
             {
                 <div class="accordion col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
                     <div class="accordion-item ">
@@ -212,7 +212,7 @@
                 </div>
             }
 
-         </div>
+        </div>
     </div>
     <div class="d-flex justify-content-start container mt-5">
         <div style="height: 45px; width: 45px; margin-top: -5px; z-index:1;" class="rounded-circle EC"></div>
@@ -223,29 +223,29 @@
         <div class="col-lg-6 col-md-6 col-sm-12"></div>
         <div class="col-lg-6 col-md-6 col-sm-12">
             <h3 class="py-3">Why Is A <span class="D">Labrador Retriever</span> The Best Breed For You?</h3>
-            @Html.Raw(ViewBag.Setting.WhyBestDesc)
+            @Html.Raw(Model.Setting.WhyBestDesc)
             <div class="wrapper">
                 <p class="mt-4 mb-0">Energy level</p>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @ViewBag.Setting.EnergyLevel%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @Model.Setting.EnergyLevel%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                </div>
-                <p class="mt-4 mb-0">Relations with children</p>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @ViewBag.Setting.RelationChild%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mb-0 mt-4">The ability to train</p>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @ViewBag.Setting.TrainAbility%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-0">The ease of care</p>
-               <div class="progress">
-                   <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @ViewBag.Setting.EaseOfCare%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-
             </div>
+            <p class="mt-4 mb-0">Relations with children</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @Model.Setting.RelationChild%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="mb-0 mt-4">The ability to train</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @Model.Setting.TrainAbility%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="mt-4 mb-0">The ease of care</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: @Model.Setting.EaseOfCare%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
         </div>
     </div>
+</div>
 
 </div>
 <div class="d-flex justify-content-start container">
@@ -257,7 +257,7 @@
         <h2 class="text-center pt-5">Did You Know?</h2>
         <p class="text-muted text-center">These are some of the most interesting facts about Labrador Retriever  <br> breed that you may have not heard about.</p>
         <div class="owl-carousel container py-4">
-            @foreach (var item in ViewBag.DidYouNow)
+            @foreach (var item in Model.DidYouNows)
             {
                 <div class="card rounded mx-1 shadow p-3 mb-5 bg-body rounded" style="width: 19rem">
                     <div class="card-body">
@@ -280,33 +280,33 @@
 <div class="container w-100 ">
     <h4 class="text-center">Popular Products</h4>
     <div class="row w-100 justify-content-center mx-auto">
-        @foreach (var item in ViewBag.Product)
+        @foreach (var item in Model.Products)
         {
-          <div class="col-lg-3 col-sm-12 col-md-3 my-3">
-            <a href="single-product.html">
+            <div class="col-lg-3 col-sm-12 col-md-3 my-3">
+                <a href="single-product.html">
 
-                <div class="card SHW p-0">
-                    <img src="~/Labradog/img/product1.png" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <i class="fas fa-star SF"></i>
-                        <span class="text-muted SPF ms-2">24</span>
-                        <span class="text-muted SPF">Reviews</span>
-                        <p class="py-2 CSH PFS">@item.DiscountPrice AZN <del class="text-muted">@item.Price AZN</del></p>
-                        <p class="HP mb-0">@item.Name - </p>
-                        <span class="text-muted">@item.Title</span>
+                    <div class="card SHW p-0">
+                        <img src="~/Labradog/img/product1.png" class="card-img-top" alt="...">
+                        <div class="card-body text-center">
+                            <i class="fas fa-star SF"></i>
+                            <i class="fas fa-star SF"></i>
+                            <i class="fas fa-star SF"></i>
+                            <i class="fas fa-star SF"></i>
+                            <i class="fas fa-star SF"></i>
+                            <span class="text-muted SPF ms-2">24</span>
+                            <span class="text-muted SPF">Reviews</span>
+                            <p class="py-2 CSH PFS">@item.DiscountPrice AZN <del class="text-muted">@item.Price AZN</del></p>
+                            <p class="HP mb-0">@item.Name - </p>
+                            <span class="text-muted">@item.Title</span>
 
 
 
-                        <p class="card-text"></p>
-                        <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                            <p class="card-text"></p>
+                            <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         }
     </div>
 </div>

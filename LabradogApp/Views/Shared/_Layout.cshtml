@@ -1,5 +1,16 @@
-﻿@using Microsoft.AspNetCore.Http
-@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.EntityFrameworkCore;
+
+@inject UserManager<User> usernamager
+
+
+@{ 
+                User user = null;
+                if (User.Identity.IsAuthenticated)
+                {
+                    user = await usernamager.Users.FirstOrDefaultAsync(x => x.UserName == User.Identity.Name);
+                } 
+                }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,14 +103,14 @@
                 <i class="mx-3 fab fa-twitter SI"></i>
                 <i class="mx-3 fab fa-instagram SI"></i>
             </div>
-            @if (HttpContextAccessor.HttpContext.Session.GetInt32("id") != null)
+            @if (user != null)
             {
-<span class="tx-15 ml-auto">Welcome @HttpContextAccessor.HttpContext.Session.GetString("name")</span>            }
+<span class="tx-15 ml-auto">Welcome @user.FullName</span>}
             <div class="">
                 <i class="mx-1 fas fa-phone-alt SI"></i>
-                <span class="tx-15" style="margin-right: 20px">@ViewBag.Setting.Phone</span>
+                <span class="tx-15" style="margin-right: 20px">+8 12342425233</span>
                 <i class="mx-1 far fa-envelope SI"></i>
-                <span class="tx-15">@ViewBag.Setting.Email</span>
+                <span class="tx-15">info@demirolink.com</span>
             </div>
         </header>
     </div>
@@ -142,11 +153,11 @@
                             Shop
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="shop.html">Shop</a></li>
-                            <li><a class="dropdown-item" href="single-product.html">Single product</a></li>
+                            <li><a class="dropdown-item" href="/shop/index">Shop</a></li>
+                            @*<li><a class="dropdown-item" href="single-product.html">Single product</a></li>*@
                             <!-- <li><hr class="dropdown-divider"></li> -->
                             <li><a class="dropdown-item" href="cart page.html">Cart page</a></li>
-                            <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
+                            @*<li><a class="dropdown-item" href="checkout.html">Checkout</a></li>*@
                         </ul>
                     </li>
                     <li class="nav-item dropdown mx-4">
@@ -154,8 +165,7 @@
                             Pages
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="page.html">Grid Blog</a></li>
-                            <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
+                            <li><a class="dropdown-item" href="/bloglist">Grid Blog</a></li>
 
                         </ul>
                     </li>
@@ -163,18 +173,20 @@
                         <a class="nav-link H" href="/contact">Contacts</a>
                     </li>
 
-                    @if (HttpContextAccessor.HttpContext.Session.GetInt32("id") == null)
+                    @if (user == null)
                     {
         <li class="nav-item mx-4">
             <a class="nav-link H" href="@Url.Action("login","auth")"><i class="fas fa-user-plus"></i></a>
-        </li> }
-                    else
-                    {
-        <li class="nav-item mx-4">
-            <form action="@Url.Action("logout","auth")" method="post">
-                <button type="submit" class="nav-link H btn btn-danger text-white"> Çıxış</button>
-            </form>
-        </li>}
+        </li>
+ }
+    else
+    {
+<li class="nav-item mx-4">
+    <form action="@Url.Action("logout","auth")" method="post">
+        <button type="submit" class="nav-link H btn btn-danger text-white"> Çıxış</button>
+    </form>
+</li>
+}
                 </ul>
 
 

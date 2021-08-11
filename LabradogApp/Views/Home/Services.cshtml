@@ -1,4 +1,4 @@
-﻿
+﻿@model LabradogApp.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Services";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,7 +14,7 @@
         <p class="text-muted">We provide high-quality dog care services and advice for a well-trained dog</p>
     </div>
     <div class="d-flex justify-content-center flex-wrap">
-        @foreach (var item in ViewBag.Service)
+        @foreach (var item in Model.Services)
         {
             <div class="card mx-3 border-0" style="width: 20rem;">
                 <img src="~/Labradog/img/card1.jpg" class="card-img-top" alt="...">
@@ -38,7 +38,7 @@
     <h3 style="font-family: 'Montserrat', sans-serif !important;" class="text-center py-5">FAQs About <span class="D">LabraDog</span> Services</h3>
     <div class="container w-100">
         <div class="row w-100">
-            @foreach (var item in ViewBag.Fag)
+            @foreach (var item in Model.Fags)
             {
                 <div class="accordion col-lg-6 col-sm-12 col-xs-12 col-md-6 my-2" id="accordionExample">
                     <div class="accordion-item ">

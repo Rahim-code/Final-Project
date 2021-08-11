@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace LabradogApp.Models
 {
-    public class Fag
+    public class Fag:BaseEntity
     {
-        public int Id { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
     }

@@ -1,8 +1,10 @@
-﻿using LabraDog.Models.EntityFramework;
+﻿using LabraDog.DAL;
 using LabradogApp.Models;
+using LabradogApp.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,32 +16,41 @@ namespace LabradogApp.Controllers
 {
     public class AdminPageController : Controller
     {
-        private EfContext context = new EfContext();
-        
+        private readonly AppDbContext _context;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+
+        public AdminPageController(AppDbContext context, UserManager<User> userManager, SignInManager<User> signInManager)
+        {
+            _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
         [Route("/admin")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [Route("admin/setting")]
         public IActionResult Setting()
         {
-            Models.Setting setting = context.Settings.FirstOrDefault();
+            Models.Setting setting = _context.Settings.FirstOrDefault();
             return View(setting);
         }
 
         [HttpPost]
         [Route("admin/setting")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult Setting(Setting setting,int id)
         {
             try
             {
-                var oldSetting = context.Settings.Where(s => s.Id == id).SingleOrDefault();
+                var oldSetting = _context.Settings.Where(s => s.Id == id).SingleOrDefault();
                 oldSetting.Phone = setting.Phone;
                 oldSetting.Email = setting.Email;
                 oldSetting.LifeExp = setting.LifeExp;
@@ -57,7 +68,7 @@ namespace LabradogApp.Controllers
                 oldSetting.History = setting.History;
                 oldSetting.Fact = setting.Fact;
                 oldSetting.Temprament = setting.Temprament;
-                context.SaveChanges();
+                _context.SaveChanges();
                 return RedirectToAction("setting","adminpage");
             }
             catch (Exception ex)
@@ -75,31 +86,33 @@ namespace LabradogApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string email,string password)
+        public async Task<IActionResult> Login(LoginViewModel loginView)
         {
-            var datas = context.Users.FirstOrDefault(u => u.Email == email && u.Password == password && u.Status == false);
-            if (datas!=null)
+            User user = await _userManager.FindByNameAsync(loginView.UserName);
+
+            if (user == null || user.isAdmin != true)
             {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name,datas.Name),
-                    new Claim(ClaimTypes.Email,datas.Email),
-                };
-                var useridentity = new ClaimsIdentity(claims, "Login");
-                ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
-                await HttpContext.SignInAsync(principal);
-                return RedirectToAction("index", "adminPage");
+                ModelState.AddModelError("", "UserName or Password is incorrect or you don't admin");
+                return View();
             }
-            TempData["error"] = "Email və ya şifrə səhvdir";
-            return View();
+
+            var result = await _signInManager.PasswordSignInAsync(user, loginView.Password, loginView.IsPersistent, true);
+
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "UserName or Password is incorrect");
+                return View();
+            }
+
+            return RedirectToAction("index");
         }
 
-        [HttpGet]
 
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("login", "adminPage");
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("login");
         }
     }
 }

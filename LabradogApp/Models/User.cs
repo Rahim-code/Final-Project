@@ -1,19 +1,32 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace LabradogApp.Models
 {
-    public class User
+    [Table("AspNetUsers")]
+    public class User : IdentityUser
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public DateTime Created_At { get; set; }
-        public bool Status { get; set; } = true;
+        public string FullName { get; set; }
+        public bool isAdmin { get; set; }
 
+        [NotMapped]
+        [StringLength(maximumLength: 50)]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [NotMapped]
+        [StringLength(maximumLength: 50)]
+        [DataType(DataType.Password), Compare(nameof(Password))]
+        public string ConfirmedPassword { get; set; }
+
+        [NotMapped]
+        [StringLength(maximumLength: 50)]
+        [DataType(DataType.Password)]
+        public string CurrentPassword { get; set; }
     }
 }

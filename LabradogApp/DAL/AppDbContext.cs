@@ -1,16 +1,17 @@
 ﻿using LabradogApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace LabraDog.Models.EntityFramework
+namespace LabraDog.DAL
 {
-    public class EfContext : DbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-72FTU3Q\SQLEXPRESS01;Database=LabradogApp;Trusted_Connection=True");
+
         }
 
-        public DbSet<User> Users { get; set; }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -26,5 +27,8 @@ namespace LabraDog.Models.EntityFramework
         public DbSet<Team> Teams { get; set; }
         public DbSet<Fag> Fags { get; set; }
         public DbSet<Service> Services { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderProduct> OrderProducts { get; set; }
+
     }
 }

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace LabradogApp.Models
 {
-    public class Product
+    public class Product:BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
         public string Title { get; set; }
@@ -21,5 +20,7 @@ namespace LabradogApp.Models
         public string PetsAge { get; set; }
         public string SpecialParameters { get; set; }
         public string DeliveryAndPaymentInfo { get; set; }
+
+        public Category Category { get; set; }
     }
 }

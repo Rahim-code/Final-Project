@@ -1,8 +1,12 @@
+using LabraDog.DAL;
+using LabradogApp.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,10 +33,27 @@ namespace LabradogApp
             services.AddSession();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-              .AddCookie(options =>
+              services.AddDbContext<AppDbContext>(options =>
             {
-                options.LoginPath = "/AdminPage/Login";
+                options.UseSqlServer(Configuration.GetConnectionString("Default"));
+            });
+
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequiredLength = 8;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(30);
+                options.Lockout.MaxFailedAccessAttempts = 3;
+
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
+
+            services.ConfigureApplicationCookie(opt =>
+            {
+                opt.LoginPath = "/AdminPage/login";
+                opt.AccessDeniedPath = "/AdminPage/login";
             });
         }
 
