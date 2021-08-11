@@ -19,7 +19,7 @@
                 <span class=" rounded-pill  px-2 m-2 BNW py-1">@Model.Blog.Category.Name</span>
                 <span class="GBT ms-2">by <span class="HP">@Model.Blog.User.FullName</span> posted @Model.Blog.Created_At.ToShortDateString()</span>
                 <p class="text-muted py-5">
-                  @Html.Raw(Model.Blog.Description)
+                    @Html.Raw(Model.Blog.Description)
                 </p>
                 <hr>
 
@@ -42,9 +42,9 @@
                 @foreach (var item in Model.Categories)
                 {
 
-                <li class="HP">
-                    @item.Name
-                </li>
+                    <li class="HP">
+                        @item.Name
+                    </li>
                 }
 
             </ul>
@@ -55,33 +55,33 @@
             <div class="row">
                 @foreach (var item in Model.Blogs)
                 {
-                 <a href="@Url.Action("blogdetail","blog", new {id=item.Id })">
-                  <div class="card mb-3 border-0" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 py-3">
-                            <img src="~/LabraDog/img/BPD1.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
+                    <a href="@Url.Action("blogdetail","blog", new {id=item.Id })">
+                        <div class="card mb-3 border-0" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4 py-3">
+                                    <img src="~/LabraDog/img/BPD1.jpg" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
 
-                                <p class="D">@item.Name</p>
-                                <p class="text-muted">@item.Created_At.ToShortDateString()</p>
+                                        <p class="D">@item.Name</p>
+                                        <p class="text-muted">@item.Created_At.ToShortDateString()</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-               </a>
-               }
+                    </a>
+                }
             </div>
             <hr>
 
 
             <h6 class="RP">Tags</h6>
             <div class=" d-flex flex-wrap w-100 ">
-               @foreach (var item in Model.Blog.BlogTags)
-               {
-                 <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">@item.Tag.Name</button>
-               }
+                @foreach (var item in Model.Blog.BlogTags)
+                {
+                    <button style="font-size: 10px;" class="btn-warning rounded-pill m-1 BC">@item.Tag.Name</button>
+                }
             </div>
         </div>
 
@@ -92,39 +92,36 @@
 <div class="container">
     <div class="my-5">
         <p class="BS">Comments</p>
-     @foreach (var item in Model.Blog.ReviewBlogs)
-     {
-        <div class="card mb-3 border-0" style="max-width: 100%;">
-            <div class="row g-0">
-                <div class="col-md-1 mx-auto py-3">
-                    <img src="~/LabraDog/img/Rev.jpg" class="img-fluid  rounded-circle" alt="...">
-                </div>
-                <div class="col-md-11">
-                    <div class="card-body">
-                        <div class="py-1">
-                            <p class="">@item.Review.User.FullName</p>
-                            <span class="text-muted">@item.Review.Created_At.ToShortDateString()</span>
+        @foreach (var item in Model.Blog.ReviewBlogs)
+        {
+            <div class="card mb-3 border-0" style="max-width: 100%;">
+                <div class="row g-0">
+                    <div class="col-md-1 mx-auto py-3">
+                        <img src="~/LabraDog/img/Rev.jpg" class="img-fluid  rounded-circle" alt="...">
+                    </div>
+                    <div class="col-md-11">
+                        <div class="card-body">
+                            <div class="py-1">
+                                <p class="">@item.User.FullName</p>
+                                <span class="text-muted">@item.CreatedAt.ToShortTimeString()</span>
+                            </div>
+                            <p class="card-text text-muted my-1">@item.Text.</p>
+                            <i class="bi bi-reply-fill D"></i>
                         </div>
-                        <p class="card-text text-muted my-1">@item.Review.Main.</p>
-                        <i class="bi bi-reply-fill D"></i>
                     </div>
                 </div>
             </div>
-        </div>
-	  }
+        }
 
         @if (User.Identity.IsAuthenticated)
         {
             <p class="BS">Leave A Review</p>
-            <form>
+            <form action="@Url.Action("addcomment","blog")" method="post">
                 <div class="row">
-                    <div class="col-lg-7 d-flex ">
-                        <input type="name" class="form-control  my-4 YEM" placeholder="Your name">
-                        <input type="email" class="form-control my-4 ms-2 YEM" placeholder="E-mail">
-                    </div>
                     <div class="col-lg-7 py-4">
-                        <textarea class="form-control rounded-3 YEM" id="exampleFormControlTextarea1" placeholder="Message" rows="3"></textarea>
+                        <textarea class="form-control rounded-3 YEM" id="exampleFormControlTextarea1" placeholder="Message" rows="3" name="Text"></textarea>
                     </div>
+                    <input type="hidden" value="@Model.Blog.Id" name="BlogId" />
                 </div>
                 <button type="submit" class="badge rounded-pill  text-light px-4 py-3 BT mx-auto" style="border-width:0px">Submit</button>
             </form>

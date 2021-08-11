@@ -22,8 +22,8 @@ namespace LabraDog.DAL
         public DbSet<ContactUs> ContactUs { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<DidYouNow> DidYouNows { get; set; }
-        public DbSet<Review> Reviews { get; set; }
         public DbSet<ReviewBlog> ReviewBlogs { get; set; }
+        public DbSet<ReviewProduct> ReviewProducts { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Fag> Fags { get; set; }
         public DbSet<Service> Services { get; set; }

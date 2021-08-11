@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace LabradogApp.Models
 {
-    public class ReviewBlog:BaseEntity
+    public class ReviewProduct:BaseEntity
     {
-        public int BlogId { get; set; }
+        public int ProductId { get; set; }
         public string UserId { get; set; }
-
-        public int Rate { get; set; }
 
         [Required]
         [StringLength(maximumLength: 500)]
@@ -19,7 +17,7 @@ namespace LabradogApp.Models
 
         public DateTime CreatedAt { get; set; }
 
-        public Blog Blog { get; set; }
+        public Product Product { get; set; }
         public User User { get; set; }
     }
 }

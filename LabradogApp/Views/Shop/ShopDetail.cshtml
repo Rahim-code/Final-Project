@@ -25,7 +25,7 @@
                         <i class="fas fa-star SF"></i>
                         <i class="fas fa-star SF"></i>
                         @*<span class="text-muted SPF ms-2">24</span>
-                        <span class="text-muted SPF">Reviews</span>*@
+                            <span class="text-muted SPF">Reviews</span>*@
                     </p>
                     <p class="text-muted">@Model.Product.Title</p>
                     <p><span class="text-dark">Categories:</span><span class="text-muted">@Model.Product.Category.Name</span></p>
@@ -54,47 +54,44 @@
 </div>
 <hr>
 
-@*<div class="container py-3">
-        <h4 class="D my-3">Reviews</h4>
+<div class="container py-3">
+    <h4 class="D my-3">Reviews</h4>
+    @foreach (var item in Model.Product.ReviewProducts)
+    {
         <div class="card mb-3 border-0" style="max-width: 100%;">
             <div class="row g-0">
                 <div class="col-md-1 mx-auto py-3">
-                    <img src="img/Rev.jpg" class="img-fluid  rounded-circle" alt="...">
+                    <img src="~/LabraDog/img/Rev.jpg" class="img-fluid  rounded-circle" alt="...">
                 </div>
                 <div class="col-md-11">
                     <div class="card-body">
-                        <p class="m-0">Helen Adams</p>
-                        <div class="">
-                            <i class="fas fa-star SF"></i>
-                            <i class="fas fa-star SF"></i>
-                            <i class="fas fa-star SF"></i>
-                            <i class="fas fa-star SF"></i>
-                            <span class="text-muted mx-5">Dec 27, 2021 at 5:47 pm</span>
-
+                        <div class="py-1">
+                        <p class="">@item.User.FullName</p>
+                            <span class="text-muted">@item.CreatedAt.ToShortTimeString()</span>
                         </div>
-
-
-                        <p class="card-text text-muted">Non odio euismod lacinia at quis. Auctor augue mauris augue neque gravida. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar. In tellus integer feugiat scelerisque varius morbi enim.</p>
-
+                        <p class="card-text text-muted">@item.Text</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>*@
+    }
+</div>
 
-@*<div class="container">
-
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container">
         <h4 class="LAR">Leave A Review</h4>
-        <div class="row">
-            <div class="col-lg-4">
-                <input type="name" class="form-control rounded-pill my-4" placeholder="Your name">
-                <input type="email" class="form-control rounded-pill" placeholder="E-mail">
+        <form method="post" action="@Url.Action("addcomment","shop")">
+            <div class="row">
+                <div class="col-lg-8 py-4">
+                    <textarea class="form-control rounded-pill" id="exampleFormControlTextarea1" placeholder="Message" rows="3" name="Text"></textarea>
+                </div>
+                <input type="hidden" value="@Model.Product.Id" name="ProductId" />
             </div>
-            <div class="col-lg-8 py-4">
-                <textarea class="form-control rounded-pill" id="exampleFormControlTextarea1" placeholder="Message" rows="3"></textarea>
-            </div>
-        </div>
-    </div>*@
+            <button type="submit" class="badge rounded-pill  text-light px-4 py-3 BT mx-auto" style="border-width:0px">Submit</button>
+        </form>
+    </div>
+}
 
 <div class="container my-3">
     <h4 class="D LAR">
@@ -145,7 +142,7 @@
                     Country of Origin:
                 </span>
                 <span class="text-muted">
-                   @Model.Product.CountryOfOrigin
+                    @Model.Product.CountryOfOrigin
 
                 </span>
             </p>
@@ -177,30 +174,30 @@
     <div class="row">
         @foreach (var item in Model.LastProducts)
         {
-          <div class="col-lg-3 col-sm-12 col-md-3 my-3">
-            <div class="card SHW p-0">
-                <img src="img/product1.png" class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <i class="fas fa-star SF"></i>
-                    <i class="fas fa-star SF"></i>
-                    <i class="fas fa-star SF"></i>
-                    <i class="fas fa-star SF"></i>
-                    <i class="fas fa-star SF"></i>
-                    @*<span class="text-muted SPF ms-2">24</span>
-                    <span class="text-muted SPF">Reviews</span>*@
-                    <p class="py-2 CSH PFS">@item.DiscountPrice <del class="text-muted">@item.Price</del></p>
-                    <p class="HP mb-0">@item.Name - </p>
-                    <span class="text-muted">@item.Category.Name</span>
-                    <p class="card-text"></p>
-                    <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+            <div class="col-lg-3 col-sm-12 col-md-3 my-3">
+                <div class="card SHW p-0">
+                    <img src="img/product1.png" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <i class="fas fa-star SF"></i>
+                        <i class="fas fa-star SF"></i>
+                        <i class="fas fa-star SF"></i>
+                        <i class="fas fa-star SF"></i>
+                        <i class="fas fa-star SF"></i>
+                        @*<span class="text-muted SPF ms-2">24</span>
+                            <span class="text-muted SPF">Reviews</span>*@
+                        <p class="py-2 CSH PFS">@item.DiscountPrice <del class="text-muted">@item.Price</del></p>
+                        <p class="HP mb-0">@item.Name - </p>
+                        <span class="text-muted">@item.Category.Name</span>
+                        <p class="card-text"></p>
+                        <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                    </div>
                 </div>
             </div>
-        </div>
         }
 
     </div>
 </div>
-        </div>
-      </div>
+    </div>
+    </div>
     </div>
 
