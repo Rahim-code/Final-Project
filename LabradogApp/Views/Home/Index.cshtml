@@ -283,7 +283,7 @@
         @foreach (var item in Model.Products)
         {
             <div class="col-lg-3 col-sm-12 col-md-3 my-3">
-                <a href="single-product.html">
+                <a href="/shop/shopdetail/@item.Id">
 
                     <div class="card SHW p-0">
                         <img src="~/Labradog/img/product1.png" class="card-img-top" alt="...">
@@ -297,12 +297,14 @@
                             <span class="text-muted SPF">Reviews</span>
                             <p class="py-2 CSH PFS">@item.DiscountPrice AZN <del class="text-muted">@item.Price AZN</del></p>
                             <p class="HP mb-0">@item.Name - </p>
-                            <span class="text-muted">@item.Title.Substring(0,100) ...</span>
+                            <span class="text-muted">@item.Title.Substring(0, 100) ...</span>
 
 
 
                             <p class="card-text"></p>
-                            <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                            <form method="post" action="@Url.Action("addbasket","shop",new {id=item.Id })">
+                                <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                            </form>
                         </div>
                     </div>
                 </a>

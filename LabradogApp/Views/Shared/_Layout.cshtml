@@ -4,13 +4,11 @@
 @inject UserManager<User> usernamager
 
 
-@{ 
-                User user = null;
+@{ User user = null;
                 if (User.Identity.IsAuthenticated)
                 {
                     user = await usernamager.Users.FirstOrDefaultAsync(x => x.UserName == User.Identity.Name);
-                } 
-                }
+                } }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +154,7 @@
                             <li><a class="dropdown-item" href="/shop/index">Shop</a></li>
                             @*<li><a class="dropdown-item" href="single-product.html">Single product</a></li>*@
                             <!-- <li><hr class="dropdown-divider"></li> -->
-                            <li><a class="dropdown-item" href="cart page.html">Cart page</a></li>
+                            <li><a class="dropdown-item" href="/basket">Cart page</a></li>
                             @*<li><a class="dropdown-item" href="checkout.html">Checkout</a></li>*@
                         </ul>
                     </li>
@@ -177,16 +175,14 @@
                     {
         <li class="nav-item mx-4">
             <a class="nav-link H" href="@Url.Action("login","auth")"><i class="fas fa-user-plus"></i></a>
-        </li>
- }
-    else
-    {
-<li class="nav-item mx-4">
-    <form action="@Url.Action("logout","auth")" method="post">
-        <button type="submit" class="nav-link H btn btn-danger text-white"> Çıxış</button>
-    </form>
-</li>
-}
+        </li> }
+                    else
+                    {
+        <li class="nav-item mx-4">
+            <form action="@Url.Action("logout","auth")" method="post">
+                <button type="submit" class="nav-link H btn btn-danger text-white"> Çıxış</button>
+            </form>
+        </li>}
                 </ul>
 
 

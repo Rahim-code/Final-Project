@@ -4,6 +4,7 @@ using LabradogApp.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +80,90 @@ namespace LabradogApp.Controllers
 
             return RedirectToAction("shopdetail", new { id = review.ProductId });
 
+        }
+
+        [Route("/basket")]
+        public IActionResult Basket()
+        {
+            var productStr = HttpContext.Request.Cookies["basket"];
+            if (productStr != null)
+            {
+                List<ProductBasketItem> cookieBasketItems = JsonConvert.DeserializeObject<List<ProductBasketItem>>(productStr);
+                List<BasketItemViewModel> basketItems = new List<BasketItemViewModel>();
+
+                foreach (var item in cookieBasketItems)
+                {
+                    Product product = _context.Products.FirstOrDefault(x => x.Id == item.Id);
+                    BasketItemViewModel basketItem = new BasketItemViewModel
+                    {
+                        Id = product.Id,
+                        Count = item.Count,
+                        Name = product.Name,
+                        Price = product.Price,
+                        Image = product.Image,
+                        Title = product.Title
+                    };
+                    basketItem.TotalPrice = basketItem.Price * basketItem.Count;
+
+                    basketItems.Add(basketItem);
+                }
+
+                return View(basketItems);
+            }
+            return RedirectToAction("index");
+        }
+
+        public IActionResult AddBasket(int id)
+        {
+
+            Product product = _context.Products.FirstOrDefault(x => x.Id == id);
+
+            if (product == null)
+                return Json(new { isSucceeded = false });
+
+            List<ProductBasketItem> productBaskets = new List<ProductBasketItem>();
+            ProductBasketItem productBasketItem = new ProductBasketItem
+            {
+                Id = product.Id,
+                Count = 1
+            };
+
+            if (HttpContext.Request.Cookies["basket"] == null)
+            {
+                productBaskets.Add(productBasketItem);
+            }
+            else
+            {
+
+                productBaskets = JsonConvert.DeserializeObject<List<ProductBasketItem>>(HttpContext.Request.Cookies["basket"]);
+
+                var existBasketItem = productBaskets.FirstOrDefault(x => x.Id == product.Id);
+
+                if (existBasketItem != null)
+                {
+                    existBasketItem.Count += 1;
+                }
+                else
+                {
+                    productBaskets.Add(productBasketItem);
+                }
+            }
+
+            decimal totalPrice = 0;
+            foreach (var item in productBaskets)
+            {
+                Product pr = _context.Products.FirstOrDefault(x => x.Id == item.Id);
+                decimal salePrice = pr.Price;
+                totalPrice += salePrice * item.Count;
+            }
+
+
+            HttpContext.Response.Cookies.Append("basket", JsonConvert.SerializeObject(productBaskets, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            }));
+
+            return RedirectToAction("basket");
         }
     }
 }

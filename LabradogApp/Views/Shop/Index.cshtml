@@ -22,12 +22,12 @@
             <p class="fs-5">Categories</p>
             @foreach (var item in Model.Categories)
             {
-              <div class="form-check my-1 CC">
-                <input style="width: 25px !important; height: 25px !important;" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label p-1" for="flexCheckDefault">
-                    @item.Name
-                </label>
-            </div>
+                <div class="form-check my-1 CC">
+                    <input style="width: 25px !important; height: 25px !important;" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label p-1" for="flexCheckDefault">
+                        @item.Name
+                    </label>
+                </div>
             }
             <label for="customRange1" class="form-label pt-2 ">Filter By Price</label>
             <input type="range" class="form-range" id="customRange1">
@@ -48,20 +48,20 @@
             <div class="row">
                 @foreach (var item in Model.Products.Take(3))
                 {
-                <div class="card mb-3 border-0" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 py-3">
-                            <img src="~/LabraDog/img/product3.png" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
+                    <div class="card mb-3 border-0" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4 py-3">
+                                <img src="~/LabraDog/img/product3.png" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
 
-                                <p class="card-text"><span class="HP">@item.Name</span><span class="text-muted"> - @item.Category.Name</span></p>
-                                <p class="card-text"><small class="text-dark">@item.DiscountPrice</small></p>
+                                    <p class="card-text"><span class="HP">@item.Name</span><span class="text-muted"> - @item.Category.Name</span></p>
+                                    <p class="card-text"><small class="text-dark">@item.DiscountPrice</small></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 }
             </div>
         </div>
@@ -83,7 +83,9 @@
                                     <p class="HP mb-0">@item.Name - </p>
                                     <span class="text-muted">@item.Category.Name</span>
                                     <p class="card-text"></p>
-                                    <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                                    <form method="post" action="@Url.Action("addbasket","shop",new {id=item.Id })">
+                                        <button type="submit" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                                    </form>
                                 </div>
                             </div>
                         </a>

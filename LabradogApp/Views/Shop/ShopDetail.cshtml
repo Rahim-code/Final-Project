@@ -12,7 +12,7 @@
     <div class="card mb-3 border-end-0" style="max-width: 100%;">
         <div class="row g-0">
             <div class="col-md-4">
-                <img style="width: 90% !important;" src="img/product1.png" class="img-fluid rounded-start" alt="...">
+                <img style="width: 90% !important;" src="~/LabraDog/img/product1.png" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -25,7 +25,7 @@
                         <i class="fas fa-star SF"></i>
                         <i class="fas fa-star SF"></i>
                         @*<span class="text-muted SPF ms-2">24</span>
-                            <span class="text-muted SPF">Reviews</span>*@
+            <span class="text-muted SPF">Reviews</span>*@
                     </p>
                     <p class="text-muted">@Model.Product.Title</p>
                     <p><span class="text-dark">Categories:</span><span class="text-muted">@Model.Product.Category.Name</span></p>
@@ -35,13 +35,9 @@
                             Country of Origin:
                         </span><span class="text-muted">@Model.Product.CountryOfOrigin</span>
                     </p>
-
-                    <button class="rounded-pill BTCR border-0 py-2 px-3" type="button" onClick="onClick()">+</button>
-                    <span class="mx-3"> <a id="clicks">0</a></span>
-
-                    <button class="rounded-pill BTCR2 border-0" type="button" onClick="onClickk()">-</button>
-
-
+                    <form method="post" action="@Url.Action("addbasket","shop",new {id=Model.Product.Id })">
+                        <button type="submit" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -184,12 +180,14 @@
                         <i class="fas fa-star SF"></i>
                         <i class="fas fa-star SF"></i>
                         @*<span class="text-muted SPF ms-2">24</span>
-                            <span class="text-muted SPF">Reviews</span>*@
+        <span class="text-muted SPF">Reviews</span>*@
                         <p class="py-2 CSH PFS">@item.DiscountPrice <del class="text-muted">@item.Price</del></p>
                         <p class="HP mb-0">@item.Name - </p>
                         <span class="text-muted">@item.Category.Name</span>
                         <p class="card-text"></p>
-                        <button type="button" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                        <form method="post" action="@Url.Action("addbasket","shop",new {id=item.Id })">
+                            <button type="submit" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
