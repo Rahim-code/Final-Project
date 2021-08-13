@@ -1,11 +1,32 @@
 ﻿@model List<LabradogApp.ViewModels.BasketItemViewModel>
 @{
-    ViewData["Title"] = "Basket";
+    ViewData["Title"] = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="SP align-items-center d-flex justify-content-center mb-5">
-    <h1 class="AU">Grid Shop</h1>
+    <h1 class="AU">Checkout</h1>
+</div>
+
+<div class="container">
+
+    <div class="row LG mx-auto">
+        <h4 class="DA">Delivery Address</h4>
+        <form method="post" action="@Url.Action("create","order")">
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center my-2">
+                <input class="form-control form-control-sm rounded-pill py-2" type="text" name="FullName" placeholder="Full Name" required>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 my-2">
+                <input class="form-control form-control-sm rounded-pill py-2 my-3" type="text" name="Adress" placeholder="Address" required>
+                <input class="form-control form-control-sm rounded-pill py-2 my-3" type="text" name="delivery-city/town" placeholder="City/Town">
+                <input class="form-control form-control-sm rounded-pill my-3 py-2" type="text" name="ContactPhone" placeholder="Phone" required>
+                <input class="form-control form-control-sm rounded-pill py-2" type="text" name="Note" placeholder="Note" required>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-11 my-5 ">
+                <button type="submit" class="btn btn-warning rounded-pill BRPB text-dark px-3 fw-bold py-2 text-white">Proceed to Checkout</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="container">
@@ -45,7 +66,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <span class="HP FFWT"> @item.Name -</span>
-                                            <span class="text-muted FFWT">@item.Title.Substring(0,60)...</span>
+                                            <span class="text-muted FFWT">@item.Title.Substring(0, 60)...</span>
                                     </div>
                                 </div>
                             </div>
@@ -70,21 +91,39 @@
 
             </div>
         }
-
     </div>
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12">
+</div>
+<div class="container d-flex justify-content-center my-3">
+    <div class="card" style="width: 30rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-lg-6">
+                        Cart Subtotal
+                    </div>
+                    <div class="col-lg-6">
+                        @Model.Sum(x => x.TotalPrice)
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
 
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-around my-2 MQ">
-            <p class="justify-content-center  justify-content-lg-end d-flex align-items-center ">
-                <span>Total:</span>
-                <span class=" fs-4">@Model.Sum(x=>x.TotalPrice)</span>
-            </p>
-            <a type="button" class="btn btn-warning rounded-pill BRPB text-dark px-3 fw-bold py-2 text-white" href="/checkout">Proceed to Checkout</a>
-        </div>
-
+                    <div class="col-lg-6">Shopping</div>
+                    <div class="col-lg-6">Free</div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-lg-6">
+                        Total
+                    </div>
+                    <div class="col-lg-6">
+                        @Model.Sum(x => x.TotalPrice)
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-
 </div>
 

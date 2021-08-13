@@ -48,7 +48,7 @@ namespace LabradogApp.Controllers
         {
             HomeViewModel homeVM = new HomeViewModel
             {
-                 Setting = _context.Settings.FirstOrDefault(),
+                Setting = _context.Settings.FirstOrDefault(),
             };
             return View(homeVM);
         }
@@ -59,7 +59,7 @@ namespace LabradogApp.Controllers
         {
             _context.ContactUs.Add(contactUs);
             _context.SaveChanges();
-            return RedirectToAction("contact","home");
+            return RedirectToAction("contact", "home");
         }
 
 
@@ -84,7 +84,7 @@ namespace LabradogApp.Controllers
             {
                 Setting = _context.Settings.FirstOrDefault(),
                 Teams = _context.Teams.OrderByDescending(x => x.Id).Take(4).ToList(),
-                Services = _context.Services.OrderByDescending(x=>x.Id).ToList(),
+                Services = _context.Services.OrderByDescending(x => x.Id).ToList(),
                 Fags = _context.Fags.OrderByDescending(x => x.Id).Take(8).ToList(),
             };
             return View(homeVM);
@@ -100,6 +100,13 @@ namespace LabradogApp.Controllers
                 Teams = _context.Teams.OrderByDescending(x => x.Id).ToList(),
             };
             return View(homeVM);
+        }
+
+        [Route("/gallery")]
+        public IActionResult Gallery()
+        {
+            List<Image> images = _context.Images.OrderByDescending(x => x.Id).ToList();
+            return View(images);
         }
 
     }

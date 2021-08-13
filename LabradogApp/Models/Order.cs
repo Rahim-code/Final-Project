@@ -8,7 +8,7 @@ namespace LabradogApp.Models
 {
     public class Order:BaseEntity
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string Adress { get; set; }
         public string FullName { get; set; }
         public string ContactPhone { get; set; }

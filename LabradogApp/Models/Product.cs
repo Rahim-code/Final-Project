@@ -11,7 +11,7 @@ namespace LabradogApp.Models
         public string Image { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
-        public decimal? DiscountPrice { get; set; }
+        public decimal DiscountPrice { get; set; }
         public int CategoryId { get; set; }
         public string FeedClass { get; set; }
         public string CountryOfOrigin { get; set; }

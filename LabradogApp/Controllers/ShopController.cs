@@ -22,17 +22,34 @@ namespace LabradogApp.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index(string search, int? categoryId)
         {
-            ShopListViewModel shopListVM = new ShopListViewModel()
+            if (categoryId == null)
             {
-                Products = _context.Products
-                .Include(x => x.Category)
-                .OrderByDescending(x => x.Id).ToList(),
-                Categories = _context.Categories.ToList(),
+                ShopListViewModel shopListVM = new ShopListViewModel()
+                {
+                    Products = _context.Products
+                    .Include(x => x.Category)
+                    .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower())))
+                    .OrderByDescending(x => x.Id).ToList(),
+                    Categories = _context.Categories.ToList(),
 
-            };
-            return View(shopListVM);
+                };
+                return View(shopListVM);
+            }
+            else
+            {
+                ShopListViewModel shopListVM = new ShopListViewModel()
+                {
+                    Products = _context.Products
+                   .Include(x => x.Category)
+                   .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower())))
+                   .Where(x => x.CategoryId == categoryId)
+                   .OrderByDescending(x => x.Id).ToList(),
+                    Categories = _context.Categories.ToList(),
+                };
+                return View(shopListVM);
+            }
         }
 
         [HttpGet]
@@ -99,7 +116,7 @@ namespace LabradogApp.Controllers
                         Id = product.Id,
                         Count = item.Count,
                         Name = product.Name,
-                        Price = product.Price,
+                        Price = product.DiscountPrice,
                         Image = product.Image,
                         Title = product.Title
                     };

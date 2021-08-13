@@ -1,0 +1,32 @@
+﻿@model List<LabradogApp.Models.Image>
+@{
+    ViewData["Title"] = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bglry-dog align-items-center d-flex justify-content-center mb-5">
+    <h1 class="AU">Grid Gallery</h1>
+</div>
+
+<div class="pt-5 my-5 border-bottom">
+    <h3 style="width: 125px; margin-bottom: -2px !important;" class="text-center ADS G mx-auto my-0">All Dogs</h3>
+
+</div>
+
+<div class="container mb-5">
+    <div class="row g-2" data-masonry='{"percentPosition": true }'>
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-md-4 col-12">
+                <div class="bg-dark">
+                    <div class="box box-one DOGGG1 OPC">
+                        <div style="height: 100% !important;" class="d-none DN"><p style="height: 100% !important;" class="MC d-flex justify-content-center align-items-center">@item.DogName <br>@item.Old</p></div>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+
