@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "AddTeam";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("addteam","adminpage")">
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="FullName" name="FullName" aria-describedby="emailHelp"
+               placeholder="Enter Full Name..." required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="Job" name="Job" placeholder="Enter Job" required>
+    </div>
+    <div class="form-group">
+        <input type="file" class="form-control form-control-user"
+               id="Image" name="Image" placeholder="Image" required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="Info" name="Info" placeholder="Info" required>
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control form-control-user"
+               id="Email" name="Email" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="Phone" name="Phone" placeholder="Phone" required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="FbLink" name="FbLink" placeholder="Facebook Link">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="TwitterLink" name="TwitterLink" placeholder="Twitter Link">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="InstagramLink" name="InstagramLink" placeholder="Instagram Link">
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Add This Member
+    </button>
+    <hr>
+</form>
+

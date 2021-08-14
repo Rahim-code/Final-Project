@@ -97,7 +97,7 @@ namespace LabradogApp.Controllers
                     CategoryName = product.Category.Name,
                     Name = product.Name,
                 };
-                orderItem.TotalPrice = orderItem.Price * orderItem.Count;
+                orderItem.TotalPrice = orderItem.SalePrice * orderItem.Count;
                 order.OrderProducts.Add(orderItem);
 
                 order.TotalPrice += orderItem.TotalPrice;

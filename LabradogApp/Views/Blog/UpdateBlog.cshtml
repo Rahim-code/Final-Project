@@ -1,0 +1,49 @@
+﻿@model LabradogApp.ViewModels.AddBlogViewModel
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("updateblog","blog",new { id=@Model.Blog.Id })">
+    <div class="form-group">
+        <p>Blog Name</p>
+        <input type="text" class="form-control form-control-user"
+               id="Name" name="Name" aria-describedby="emailHelp"
+               placeholder="Enter Blog Name..." required value="@Model.Blog.Name">
+    </div>
+    <div class="form-group">
+        <p>Image</p>
+        <input type="file" class="form-control form-control-user"
+               id="Image" name="Image" placeholder="Enter Main Image">
+        <img src="~/uploads/@Model.Blog.Image" style="height:80px" class="mt-2" />
+    </div>
+    <div class="form-group">
+        <p>Category</p>
+        <select class="form-control form-control-user" required name="CategoryId">
+            <option value="@Model.Blog.Category.Id">@Model.Blog.Category.Name</option>
+            @foreach (var item in Model.Categories)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    @*<div class="form-group">
+            <p>Tags</p>
+            <select multiple class="form-control form-control-user" name="tags">
+                @foreach (var item in Model.Tags)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>*@
+    <div class="form-group">
+        <p>Blog Description-(Minimum 150 Length)</p>
+        <textarea id="summernote" name="Description" required>@Model.Blog.Description</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Edit This Blog
+    </button>
+    <hr>
+</form>
+
+

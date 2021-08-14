@@ -402,47 +402,17 @@
     <h2 class="text-center py-5">Photos Of Our <span class="D">Labradors</span></h2>
     <div class="container">
         <div class="row g-2" data-masonry='{"percentPosition": true }'>
-            <div class="col-sm-6 col-md-4 col-12">
-                <div class="bg-dark">
-
-                    <div class="box box-one DIMG1 OPC">
+            @foreach (var item in Model.Images)
+            {
+                <div class="col-sm-6 col-md-4 col-12">
+                    <div class="bg-dark">
+                        <div class="box box-one">
+                            <img src="~/uploads/@item.DogImage" class="box box-one"/>
+                        </div>
 
                     </div>
-
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-12">
-                <div class="bg-dark">
-
-                    <div class="box box-two DIMG2 OPC"></div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-12">
-                <div class="bg-dark">
-
-                    <div class="box box-three DIMG3 OPC"></div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-12">
-                <div class="bg-dark">
-
-                    <div class="box box-four DIMG4 OPC"></div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-12">
-                <div class="bg-dark">
-
-                    <div class="box box-seven DIMG7 OPC"></div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-12">
-                <div class="bg-dark">
-
-                    <div class="box box-eight DIMG8 OPC"></div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>

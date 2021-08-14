@@ -17,13 +17,24 @@
                 <a href="@Url.Action("blogdetail","blog",new { id=item.Id})">
                     <div class="card my-1 border-0" style="width: 100%;">
                         <div class="position-relative">
-                            <img src="~/LabraDog/img/GB1.jpg" class="card-img-top GBO" alt="...">
+                            <img src="~/uploads/@item.Image" class="card-img-top GBO" alt="...">
                             <span class="position-absolute top-0 start-0 rounded-pill  px-2 m-2 BNW py-1">@item.Category.Name</span>
                         </div>
                         <div class="card-body">
                             <p class="GBT">by <span class="HP">@item.User.FullName</span> posted @item.Created_At.ToShortDateString()</p>
                             <p class="GBTT HP">@item.Name</p>
-                            <p class="text-muted">@Html.Raw(item.Description.Substring(0,150)) ...</p>
+                            <p class="text-muted">
+                                @if (item.Description.Length > 150)
+                                {
+
+                                    @Html.Raw(item.Description.Substring(0, 150))
+                                }
+                                else
+                                {
+                                    @Html.Raw(item.Description)
+                                }
+                                ...
+                            </p>
                         </div>
                     </div>
                 </a>

@@ -5,29 +5,27 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Pustok.Helpers
+namespace LabradogApp.Helpers
 {
     public class FileManager
     {
-        public static string Save(string rootPath, string folder, IFormFile file)
+        public static string Save(IFormFile file)
         {
-            var filename = Guid.NewGuid().ToString() + file.FileName;
-            var path = Path.Combine(rootPath, "uploads", filename);
-
-            using (FileStream stream = new FileStream(path, FileMode.Create))
-            {
-                file.CopyTo(stream);
-            }
+            var extension = Path.GetExtension(file.FileName);
+            var filename = Guid.NewGuid() + extension;
+            var location = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/uploads/",filename);
+            var stream = new FileStream(location, FileMode.Create);
+            file.CopyTo(stream);
 
             return filename;
         }
 
-        public static bool Delete(string rootPath, string folder, string filename)
+        public static bool Delete(string filename)
         {
-            var path = Path.Combine(rootPath, "uploads", filename);
-            if (System.IO.File.Exists(path))
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads/", filename);
+            if (File.Exists(path))
             {
-                System.IO.File.Delete(path);
+                File.Delete(path);
                 return true;
             }
 

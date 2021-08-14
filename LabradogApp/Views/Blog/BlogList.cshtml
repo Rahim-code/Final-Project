@@ -1,0 +1,71 @@
+﻿@model List<LabradogApp.Models.Blog>
+@{
+    ViewData["Title"] = "BlogList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Blog List</h1>
+    <a href="/admin/addblog" class="btn btn-primary btn-icon-split mb-2">
+        <span class="icon text-white-50">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Add Blog</span>
+    </a>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Blogs</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>User</th>
+                            <th>Category</th>
+                            <th>Total Review</th>
+                            <th>Created</th>
+                            <th>Description</th>
+                            <th>Setting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>
+                                <img src="~/uploads/@item.Image" style="height:70px">
+                            </td>
+                            <td>@item.User.FullName</td>
+                            <td>@item.Category.Name</td>
+                            <td>@item.ReviewBlogs.Count</td>
+                            <td>@item.Created_At.ToShortDateString()</td>
+                            @if (item.Description.Length > 100)
+                            {
+                                <td>@Html.Raw(item.Description.Substring(0, 100)) ...</td>
+                            }
+                            else
+                            {
+                                <td>@Html.Raw(item.Description) ...</td>
+                            }
+                            <td>
+                                <a class="fa fa-edit" href="@Url.Action("updateblog","blog", new {id=@item.Id })" style="color:seagreen"></a>
+                                <a class="fa fa-trash ml-2" href="@Url.Action("deleteblog","blog", new {id=@item.Id })" style="color:darkred"></a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+            </div>

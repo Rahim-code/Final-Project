@@ -33,6 +33,7 @@ namespace LabradogApp.Controllers
                 DidYouNows = _context.DidYouNows.ToList().ToList(),
                 Services = _context.Services.OrderByDescending(x => x.Id).Take(3).ToList(),
                 Products = _context.Products.OrderByDescending(x => x.Id).Take(4).ToList(),
+                Images = _context.Images.OrderByDescending(x => x.Id).Take(9).ToList(),
             };
             return View(homeVM);
         }

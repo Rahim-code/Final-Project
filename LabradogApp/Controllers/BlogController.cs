@@ -1,8 +1,10 @@
 ﻿using LabraDog.DAL;
 using LabradogApp.Dtos;
+using LabradogApp.Helpers;
 using LabradogApp.Models;
 using LabradogApp.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,10 +17,14 @@ namespace LabradogApp.Controllers
     public class BlogController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public BlogController(AppDbContext context)
+
+        public BlogController(AppDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
+
         }
 
         [HttpGet]
@@ -84,5 +90,109 @@ namespace LabradogApp.Controllers
 
         }
 
+
+        [Route("/admin/bloglist")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult BlogList()
+        {
+            List<Blog> blogs = _context.Blogs
+                .Include(x => x.User)
+                .Include(x => x.Category)
+                .Include(x => x.ReviewBlogs).ThenInclude(x => x.User)
+                .OrderByDescending(x => x.Created_At).ToList();
+            return View(blogs);
+        }
+
+        [HttpGet]
+        [Route("/admin/addblog")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult AddBlog()
+        {
+            AddBlogViewModel blogVM = new AddBlogViewModel()
+            {
+                Categories = _context.Categories.ToList(),
+                Tags = _context.Tags.ToList(),
+            };
+            return View(blogVM);
+        }
+
+        [HttpPost]
+        [Route("/admin/addblog")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult AddBlog(AddBlogDto blog)
+        {
+            User user = null;
+            if (User.Identity.IsAuthenticated)
+            {
+                user = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.isAdmin);
+            }
+
+            Blog newBlog = new Blog();
+            newBlog.Name = blog.Name;
+            newBlog.Image = FileManager.Save(blog.Image);
+            newBlog.Description = blog.Description;
+            newBlog.Description = blog.Description;
+            newBlog.CategoryId = blog.CategoryId;
+            newBlog.User = user;
+            newBlog.Created_At = DateTime.Now;
+            _context.Add(newBlog);
+            _context.SaveChanges();
+            return RedirectToAction("bloglist");
+        }
+
+        [HttpGet]
+        [Route("/admin/editblog")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult UpdateBlog(int id)
+        {
+            Blog blog = _context.Blogs.Include(x => x.Category).FirstOrDefault(x => x.Id == id);
+            if (blog == null)
+            {
+                return RedirectToAction("bloglist");
+            }
+
+            AddBlogViewModel blogVM = new AddBlogViewModel()
+            {
+                Categories = _context.Categories.Where(x => x.Id != blog.CategoryId).ToList(),
+                Tags = _context.Tags.ToList(),
+                Blog = blog,
+            };
+            return View(blogVM);
+        }
+
+        [HttpPost]
+        [Route("/admin/editblog")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult UpdateBlog(AddBlogDto blogDto, int id)
+        {
+            Blog blog = _context.Blogs.FirstOrDefault(x => x.Id == id);
+            if (blog == null)
+            {
+                return RedirectToAction("bloglist");
+            }
+            blog.Name = blogDto.Name;
+            if (blogDto.Image != null)
+            {
+                blog.Image = FileManager.Save(blogDto.Image);
+            }
+            blog.Description = blogDto.Description;
+            blog.CategoryId = blogDto.CategoryId;
+            _context.Update(blog);
+            _context.SaveChanges();
+            return RedirectToAction("bloglist");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult DeleteBlog(int id)
+        {
+            Blog blog = _context.Blogs.FirstOrDefault(x => x.Id == id);
+            if (blog != null)
+            {
+                FileManager.Delete(blog.Image);
+                _context.Remove(blog);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("bloglist");
+        }
     }
 }

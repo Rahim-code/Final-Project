@@ -16,5 +16,6 @@ namespace LabradogApp.ViewModels
         public List<Product> Products { get; set; }
         public List<Team> Teams { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Image> Images { get; set; }
     }
 }
