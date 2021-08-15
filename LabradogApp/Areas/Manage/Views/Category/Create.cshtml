@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("create","category")">
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="Name" name="Name" aria-describedby="emailHelp"
+               placeholder="Enter Category Name..." required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Add This Category
+    </button>
+    <hr>
+</form>

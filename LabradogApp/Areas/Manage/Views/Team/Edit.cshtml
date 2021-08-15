@@ -1,0 +1,49 @@
+﻿@model LabradogApp.Models.Team
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("edit","team",new {id=Model.Id })">
+    <div class="form-group">
+        <p>Full Name</p>
+        <input type="text" class="form-control form-control-user"
+               id="FullName" name="FullName" aria-describedby="emailHelp"
+               placeholder="Enter Full Name..." required value="@Model.FullName">
+    </div>
+    <div class="form-group">
+        <p>Phone</p>
+        <input type="text" class="form-control form-control-user"
+               id="Phone" name="Phone" aria-describedby="emailHelp"
+               placeholder="Enter Phone..." required value="@Model.Phone">
+    </div>
+    <div class="form-group">
+        <p>Email</p>
+        <input type="text" class="form-control form-control-user"
+               id="Email" name="Email" aria-describedby="emailHelp"
+               placeholder="Enter Email..." required value="@Model.Email">
+    </div>
+    <div class="form-group">
+        <p>Job</p>
+        <input type="text" class="form-control form-control-user"
+               id="Job" name="Job" aria-describedby="emailHelp"
+               placeholder="Enter Job..." required value="@Model.Job">
+    </div>
+    <div class="form-group">
+        <p>Info</p>
+        <input type="text" class="form-control form-control-user"
+               id="Info" name="Info" aria-describedby="emailHelp"
+               placeholder="Enter info..." required value="@Model.Info">
+    </div>
+    <div class="form-group">
+        <p>Image</p>
+        <input type="file" class="form-control form-control-user"
+               id="Image" name="Image" placeholder="Enter Image">
+        <img src="~/uploads/@Model.Image" style="height:70px;margin-top:10px" />
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Add This Team Member
+    </button>
+    <hr>
+</form>
+

@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("create","didyouknow")">
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="Topic" name="Topic" aria-describedby="emailHelp"
+               placeholder="Enter Topic..." required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Edit This Did You Know
+    </button>
+    <hr>
+</form>

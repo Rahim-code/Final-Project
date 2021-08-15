@@ -1,0 +1,52 @@
+﻿@model LabradogApp.Models.Order
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card mb-4">
+        <div class="card-header row">
+            <div class="col-md-6">
+                @Model.FullName  -  @Model.CreatedAt.ToString("HH:mm - dd MMMM yyyy")
+            </div>
+            <div class="col-md-6">
+                <form method="post" asp-action="changestatus">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Author</label>
+                            <select asp-for="@Model.Status" class="form-control" name="Status">
+                                <option value="Pending">Pending</option>
+                                <option value="Accepted">Accepted</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Set status</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <p class="card-text">Total count: @Model.OrderProducts.Sum(x => x.Count)</p>
+            <p class="card-text">Total amount: @Model.TotalPrice</p>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model.OrderProducts)
+        {
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">Price: @item.SalePrice</p>
+                        <p class="card-text">Count: @item.Count</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

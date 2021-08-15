@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("create","team")">
+    <div class="form-group">
+        <p>Full Name</p>
+        <input type="text" class="form-control form-control-user"
+               id="FullName" name="FullName" aria-describedby="emailHelp"
+               placeholder="Enter Full Name..." required>
+    </div>
+    <div class="form-group">
+        <p>Phone</p>
+        <input type="text" class="form-control form-control-user"
+               id="Phone" name="Phone" aria-describedby="emailHelp"
+               placeholder="Enter Email..." required>
+    </div>
+    <div class="form-group">
+        <p>Email</p>
+        <input type="text" class="form-control form-control-user"
+               id="Email" name="Email" aria-describedby="emailHelp"
+               placeholder="Enter Email..." required>
+    </div>
+    <div class="form-group">
+        <p>Job</p>
+        <input type="text" class="form-control form-control-user"
+               id="Job" name="Job" aria-describedby="emailHelp"
+               placeholder="Enter Job..." required>
+    </div>
+    <div class="form-group">
+        <p>Info</p>
+        <input type="text" class="form-control form-control-user"
+               id="Info" name="Info" aria-describedby="emailHelp"
+               placeholder="Enter info..." required>
+    </div>
+    <div class="form-group">
+        <p>Image</p>
+        <input type="file" class="form-control form-control-user"
+               id="Image" name="Image" placeholder="Enter Image" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Add This Team Member
+    </button>
+    <hr>
+</form>
+

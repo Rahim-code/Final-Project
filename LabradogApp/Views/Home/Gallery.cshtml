@@ -1,4 +1,4 @@
-﻿@model List<LabradogApp.Models.Image>
+﻿ @model List<LabradogApp.Models.Image>
 @{
     ViewData["Title"] = "Gallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,12 +19,10 @@
         {
             <div class="col-sm-6 col-md-4 col-12">
                 <div class="bg-dark">
-                    <div class="box box-one DOGGG1 OPC">
+                        <img src="~/uploads/@item.DogImage" class="box box-one DOGGG1 OPC" />
                         <div style="height: 100% !important;" class="d-none DN"><p style="height: 100% !important;" class="MC d-flex justify-content-center align-items-center">@item.DogName <br>@item.Old</p></div>
                     </div>
                 </div>
-
-            </div>
         }
     </div>
 </div>

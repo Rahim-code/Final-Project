@@ -1,0 +1,17 @@
+﻿@model LabradogApp.Models.DidYouNow
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("edit","didyouknow",new {id=Model.Id })">
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="Topic" name="Topic" aria-describedby="emailHelp"
+               placeholder="Enter Topic..." required value="@Model.Topic">
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Edit This Did You Know
+    </button>
+    <hr>
+</form>

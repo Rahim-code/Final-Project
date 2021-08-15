@@ -60,7 +60,7 @@
         @foreach (var item in Model.Services)
         {
             <div class="card mx-3 border-0" style="width: 20rem;">
-                <img src="~/Labradog/img/card1.jpg" class="card-img-top" alt="...">
+                <img src="~/uploads/@item.Image" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 style="font-size: 20px;" class="text-center HD">@item.Title</h4>
                     <p class="text-muted text-center">@item.Main</p>
@@ -87,7 +87,7 @@
                 <div class="card mb-3 border-0" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-6 col-sm-12 d-flex justify-content-center">
-                            <img src="~/LabraDog/img/person1.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="~/uploads/@item.Image" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="card-body ">

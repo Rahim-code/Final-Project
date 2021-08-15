@@ -52,8 +52,8 @@ namespace LabradogApp
 
             services.ConfigureApplicationCookie(opt =>
             {
-                opt.LoginPath = "/AdminPage/login";
-                opt.AccessDeniedPath = "/AdminPage/login";
+                opt.LoginPath = "/manage/account/login";
+                opt.AccessDeniedPath = "/manage/account/login";
             });
         }
 
@@ -82,6 +82,12 @@ namespace LabradogApp
 
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapControllerRoute(
+                  name: "area",
+                  pattern: "{area:exists}/{controller=dashboard}/{action=Index}/{id?}"
+                  );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

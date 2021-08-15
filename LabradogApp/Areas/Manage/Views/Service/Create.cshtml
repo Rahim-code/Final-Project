@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("create","service")">
+    <div class="form-group">
+        <p>Service Title</p>
+        <input type="text" class="form-control form-control-user"
+               id="Title" name="Title" aria-describedby="emailHelp"
+               placeholder="Enter Title..." required>
+    </div>
+    <div class="form-group">
+        <p>Service Main Content</p>
+        <input type="text" class="form-control form-control-user"
+               id="Main" name="Main" aria-describedby="emailHelp"
+               placeholder="Enter Content..." required>
+    </div>
+    <div class="form-group">
+        <p>Image</p>
+        <input type="file" class="form-control form-control-user"
+               id="Image" name="Image" placeholder="Enter Image" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Add This Service
+    </button>
+    <hr>
+</form>
+

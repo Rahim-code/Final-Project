@@ -1,0 +1,22 @@
+﻿@model LabradogApp.Models.Fag
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("edit","faq",new {id=Model.Id })">
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="Question" name="Question" aria-describedby="emailHelp"
+               placeholder="Enter Question..." required value="@Model.Question">
+    </div> 
+    <div class="form-group">
+        <input type="text" class="form-control form-control-user"
+               id="Answer" name="Answer" aria-describedby="emailHelp"
+               placeholder="Enter Answer..." required value="@Model.Answer">
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Edit This Fag
+    </button>
+    <hr>
+</form>

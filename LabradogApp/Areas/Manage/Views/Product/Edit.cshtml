@@ -1,0 +1,93 @@
+﻿@model LabradogApp.Models.Product
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("edit","product",new {id=Model.Id })">
+    <div class="form-group">
+        <p>Name</p>
+        <input type="text" class="form-control form-control-user"
+               id="Name" name="Name" aria-describedby="emailHelp"
+               placeholder="Enter Name..." required value="@Model.Name">
+    </div>
+    <div class="form-group">
+        <p>Title</p>
+        <input type="text" class="form-control form-control-user"
+               id="Title" name="Title" aria-describedby="emailHelp"
+               placeholder="Enter Title..." required value="@Model.Title">
+    </div>
+    <div class="form-group">
+        <p>Price</p>
+        <input type="text" class="form-control form-control-user"
+               id="Price" name="Price" aria-describedby="emailHelp"
+               placeholder="Enter Price..." required value="@Model.Price">
+    </div>
+    <div class="form-group">
+        <p>Discount Price</p>
+        <input type="text" class="form-control form-control-user"
+               id="DiscountPrice" name="DiscountPrice" aria-describedby="emailHelp"
+               placeholder="Enter Discounted Price..." required value="@Model.DiscountPrice">
+    </div>
+    <div class="form-group">
+        <p>Category Name</p>
+        <select class="form-control form-control-user" name="CategoryId">
+            <option value="@Model.Category.Id">@Model.Category.Name</option>
+            @foreach (var item in ViewBag.Categories)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <p>Image</p>
+        <input type="file" class="form-control form-control-user"
+               id="Image" name="Image" placeholder="Enter Image">
+        <img src="~/uploads/@Model.Image" style="height:70px;margin-top:10px" />
+    </div>
+    <div class="form-group">
+        <p>Delivery And Payment Info</p>
+        <textarea id="summernote1" name="DeliveryAndPaymentInfo" required>@Model.DeliveryAndPaymentInfo</textarea>
+    </div>
+    <div class="form-group">
+        <p>Feed Class</p>
+        <input type="text" class="form-control form-control-user"
+               id="FeedClass" name="FeedClass" aria-describedby="emailHelp"
+               placeholder="Enter Feed Class..." required value="@Model.FeedClass">
+    </div>
+    <div class="form-group">
+        <p>Country of origin</p>
+        <input type="text" class="form-control form-control-user"
+               id="CountryOfOrigin" name="CountryOfOrigin" aria-describedby="emailHelp"
+               placeholder="Enter Country of Origin..." required value="@Model.CountryOfOrigin">
+    </div>
+    <div class="form-group">
+        <p>Type of meat</p>
+        <input type="text" class="form-control form-control-user"
+               id="TypeofMeat" name="TypeofMeat" aria-describedby="emailHelp"
+               placeholder="Enter Type of Meat..." required value="@Model.TypeOfMeat">
+    </div>
+    <div class="form-group">
+        <p>Breed Size</p>
+        <input type="text" class="form-control form-control-user"
+               id="BreedSize" name="BreedSize" aria-describedby="emailHelp"
+               placeholder="Enter Breed size..." required value="@Model.BreedSize">
+    </div>
+    <div class="form-group">
+        <p>Pets Age</p>
+        <input type="text" class="form-control form-control-user"
+               id="PetsAge" name="PetsAge" aria-describedby="emailHelp"
+               placeholder="Enter Pets Age..." required value="@Model.PetsAge">
+    </div>
+    <div class="form-group">
+        <p>Special Parametrs</p>
+        <input type="text" class="form-control form-control-user"
+               id="SpecialParameters" name="SpecialParameters" aria-describedby="emailHelp"
+               placeholder="Enter Special parameters..." required value="@Model.SpecialParameters">
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Edit This Product
+    </button>
+    <hr>
+</form>
+

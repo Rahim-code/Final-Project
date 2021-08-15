@@ -1,0 +1,96 @@
+﻿@model List<LabradogApp.Models.Order>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+
+    int selectedPage = (int)ViewBag.SelectedPage;
+    int totalPage = (int)ViewBag.TotalPage;
+
+    int i = ((int)ViewBag.SelectedPage - 1) * 5;
+}
+
+<div class="container-fluid">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="row">
+                <th class="col-md-1">#</th>
+                <th class="col-md-2">User</th>
+                <th class="col-md-1">Item count</th>
+                <th class="col-md-2">TotalPrice</th>
+                <th class="col-md-1">Benefit</th>
+                <th class="col-md-2">Date</th>
+                <th class="col-md-2">Status</th>
+                <th class="col-md-1"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                i++;
+                <tr class="row">
+                    <td class="col-md-1">@i</td>
+                    <td class="col-md-2">@item.FullName</td>
+                    <td class="col-md-1">@item.OrderProducts.Count()</td>
+                    <td class="col-md-2">@item.TotalPrice</td>
+                    @{
+                        var totalPrPrice = item.OrderProducts.Sum(x => (x.ProducingPrice * x.Count));
+                    }
+                    <td class="col-md-1">@(item.TotalPrice - totalPrPrice)</td>
+                    <td class="col-md-2">@item.CreatedAt.ToString("dd MMM yyyy")</td>
+                    <td class="col-md-2">
+                        @{
+
+                            if (item.Status == LabradogApp.Enums.OrderStatus.Accepted)
+                            {
+                                <span style="padding:10px" class="badge badge-pill badge-secondary">Accepted</span>
+                            }
+                            else if (item.Status == LabradogApp.Enums.OrderStatus.Pending)
+                            {
+                                <span style="padding:10px" class="badge badge-pill badge-info">Pending</span>
+                            }
+                            else
+                            {
+                                <span style="padding:10px" class="badge badge-pill badge-danger">@(item.Status == LabradogApp.Enums.OrderStatus.UserReject?"User rejected":"Admin rejected")</span>
+                            }
+
+
+                        }
+                    </td>
+                    <td class="col-md-1">
+                        <a class="btn btn-warning" asp-action="detail" href="@Url.Action("detail","order",new { id=item.Id})" asp-route-id="@item.Id">Detail</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item @(selectedPage==1?"disabled":"")"><a class="page-link" asp-action="index" asp-route-page="@(selectedPage-1)">Previous</a></li>
+
+            @{
+                int startpage = selectedPage - 1;
+                int endPage = selectedPage + 1;
+
+                if (selectedPage == 1)
+                {
+                    startpage = 1;
+                    endPage = 3 > totalPage ? totalPage : 3;
+                }
+                else if (selectedPage == totalPage)
+                {
+                    startpage = (selectedPage - 2) < 1 ? 1 : selectedPage - 2;
+                    endPage = totalPage;
+                }
+
+            }
+            @for (int j = startpage; j <= endPage; j++)
+            {
+                <li class="page-item @(j==selectedPage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@j">@j</a></li>
+            }
+            <li class="page-item @(selectedPage==totalPage?"disabled":"") "><a class="page-link" asp-action="index" asp-route-page="@(selectedPage+1)">Next</a></li>
+        </ul>
+    </nav>
+</div>
