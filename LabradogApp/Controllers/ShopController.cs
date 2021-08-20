@@ -30,7 +30,7 @@ namespace LabradogApp.Controllers
                 {
                     Products = _context.Products
                     .Include(x => x.Category)
-                    .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower())))
+                    .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower()))||(x.Category.Name.ToLower().Contains(search.ToLower()))|| (x.Title.ToLower().Contains(search.ToLower())))
                     .OrderByDescending(x => x.Id).ToList(),
                     Categories = _context.Categories.ToList(),
 
