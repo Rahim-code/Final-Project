@@ -172,7 +172,7 @@
         {
             <div class="col-lg-3 col-sm-12 col-md-3 my-3">
                 <div class="card SHW p-0">
-                    <img src="img/product1.png" class="card-img-top" alt="...">
+                    <img src="~/uploads/@item.Image" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                         <i class="fas fa-star SF"></i>
                         <i class="fas fa-star SF"></i>
@@ -183,7 +183,7 @@
         <span class="text-muted SPF">Reviews</span>*@
                         <p class="py-2 CSH PFS">@item.DiscountPrice <del class="text-muted">@item.Price</del></p>
                         <p class="HP mb-0">@item.Name - </p>
-                        <span class="text-muted">@item.Category.Name</span>
+                        <span class="text-muted">@item.Category?.Name</span>
                         <p class="card-text"></p>
                         <form method="post" action="@Url.Action("addbasket","shop",new {id=item.Id })">
                             <button type="submit" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>

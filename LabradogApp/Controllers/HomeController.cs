@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using LabradogApp.Models;
 using LabraDog.DAL;
 using LabradogApp.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace LabradogApp.Controllers
 {
@@ -32,7 +33,7 @@ namespace LabradogApp.Controllers
                 Fags = _context.Fags.OrderByDescending(x => x.Id).Take(6).ToList(),
                 DidYouNows = _context.DidYouNows.ToList().ToList(),
                 Services = _context.Services.OrderByDescending(x => x.Id).Take(3).ToList(),
-                Products = _context.Products.OrderByDescending(x => x.Id).Take(4).ToList(),
+                Products = _context.Products.Include(x=>x.ReviewProducts).OrderByDescending(x => x.Id).Take(4).ToList(),
                 Images = _context.Images.OrderByDescending(x => x.Id).Take(9).ToList(),
             };
             return View(homeVM);

@@ -22,7 +22,7 @@
                 @foreach (var item in Model.Categories)
                 {
                     <div class="form-check my-1 CC">
-                        <input style="width: 25px !important; height: 25px !important;" class="form-check-input" type="radio" value="@item.Id" id="flexCheckDefault">
+                        <input style="width: 25px !important; height: 25px !important;" class="form-check-input" type="radio" value="@item.Id" id="categoryId" name="categoryId">
                         <label class="form-check-label p-1" for="flexCheckDefault">
                             @item.Name
                         </label>

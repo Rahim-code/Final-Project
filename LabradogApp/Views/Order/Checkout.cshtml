@@ -66,7 +66,19 @@
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <span class="HP FFWT"> @item.Name -</span>
-                                            <span class="text-muted FFWT">@item.Title.Substring(0, 60)...</span>
+                                            <span class="text-muted FFWT">
+                                                @if (item.Title.Length > 60)
+                                                {
+                                                    @item.Title.Substring(0, 60)
+
+                                                }
+                                                else
+                                                {
+                                                    @item.Title
+                                                }
+
+                                                ...
+                                            </span>
                                     </div>
                                 </div>
                             </div>

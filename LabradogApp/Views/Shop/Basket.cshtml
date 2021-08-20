@@ -45,7 +45,19 @@
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <span class="HP FFWT"> @item.Name -</span>
-                                            <span class="text-muted FFWT">@item.Title.Substring(0,60)...</span>
+                                            <span class="text-muted FFWT">
+                                                @if (item.Title.Length > 60)
+                                                {
+                                                    @item.Title.Substring(0, 60)
+
+                                                }
+                                                else
+                                                {
+                                                    @item.Title
+                                                }
+
+                                                ...
+                                            </span>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +91,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-around my-2 MQ">
             <p class="justify-content-center  justify-content-lg-end d-flex align-items-center ">
                 <span>Total:</span>
-                <span class=" fs-4">@Model.Sum(x=>x.TotalPrice)</span>
+                <span class=" fs-4">@Model.Sum(x => x.TotalPrice)</span>
             </p>
             <a type="button" class="btn btn-warning rounded-pill BRPB text-dark px-3 fw-bold py-2 text-white" href="/checkout">Proceed to Checkout</a>
         </div>
