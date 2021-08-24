@@ -1,4 +1,4 @@
-﻿ @model List<LabradogApp.Models.Image>
+﻿@model List<LabradogApp.Models.Image>
 @{
     ViewData["Title"] = "Gallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,12 +17,14 @@
     <div class="row g-2" data-masonry='{"percentPosition": true }'>
         @foreach (var item in Model)
         {
-            <div class="col-sm-6 col-md-4 col-12">
-                <div class="bg-dark">
-                        <img src="~/uploads/@item.DogImage" class="box box-one DOGGG1 OPC" />
-                        <div style="height: 100% !important;" class="d-none DN"><p style="height: 100% !important;" class="MC d-flex justify-content-center align-items-center">@item.DogName <br>@item.Old</p></div>
-                    </div>
+        <div class="col-sm-6 col-md-4 col-12">
+            <div class="bg-dark">
+                <div class="box box-one DOGGG1 OPC">
+                    <img src="~/uploads/@item.DogImage" class="box box-one">
+                    <div style="height: 100% !important;position:absolute;bottom:6px;top:1px;width:95%" class="d-none DN"><p style="height: 100% !important;" class="MC d-flex justify-content-center align-items-center ">@item.DogName <br>@item.Old</p></div>
                 </div>
+            </div>
+        </div>
         }
     </div>
 </div>
