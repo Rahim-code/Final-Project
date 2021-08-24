@@ -24,7 +24,7 @@ namespace LabradogApp.Areas.Manage.Controllers
         public IActionResult Index(int page = 1)
         {
             ViewBag.SelectedPage = page;
-            ViewBag.TotalPage = Math.Ceiling(_context.Products.Count() / 5m);
+            ViewBag.TotalPage = Math.Ceiling(_context.Categories.Count() / 5m);
 
             var model = _context.Categories.Skip((page - 1) * 5).Take(5).ToList();
 
