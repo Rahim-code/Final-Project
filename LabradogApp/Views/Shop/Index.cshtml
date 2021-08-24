@@ -28,21 +28,20 @@
                         </label>
                     </div>
                 }
-                @*<label for="customRange1" class="form-label pt-2 ">Filter By Price</label>*@
-                @*<input type="range" class="form-range" id="customRange1">*@
-                <div class="d-flex justify-content-between mt-2">
-                    <button type="submit" class="badge rounded-pill text-light px-4 py-3 BT" style="border-width:0px">Filter</button>
-                    @*<p class="pt-2">
+                <label for="customRange1" class="form-label pt-2 ">Filter By Price</label>
+                <input type="range" class="form-range" id="customRange1" value="100">
+                <p class="pt-2">
                     Price:
 
-                    $
-                    20
+                    <input value="@ViewBag.MinPrice" name="minPrice" style="border:none;width:75px;text-align:center" />
 
                     -
 
-                    $
-                    50
-                </p>*@
+                    <input value="@ViewBag.MaxPrice" name="maxPrice" id="maxPrice" style="border:none;width:75px;text-align:center" />
+                </p>
+                <div class="d-flex justify-content-between mt-2">
+                    <button type="submit" class="badge rounded-pill text-light px-4 py-3 BT" style="border-width:0px">Filter</button>
+
                 </div>
             </form>
             <div class="row">
@@ -84,7 +83,7 @@
                                     <p class="HP mb-0">@item.Name - </p>
                                     <span class="text-muted">@item.Category.Name</span>
                                     <p class="card-text"></p>
-                                    <form method="post" action="@Url.Action("addbasket","shop",new {id=item.Id })">
+                                    <form method="post" action="@Url.Action("addbasket", "shop", new { id = item.Id,countClick=1 })">
                                         <button type="submit" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
                                     </form>
                                 </div>
@@ -95,6 +94,3 @@
             </div>
         </div>
 </div>
-      </div>
-    </div>
-

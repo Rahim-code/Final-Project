@@ -22,33 +22,75 @@ namespace LabradogApp.Controllers
         }
 
 
-        public IActionResult Index(string search, int? categoryId)
+        public IActionResult Index(string search, int? categoryId, decimal? minPrice,decimal? maxPrice)
         {
-            if (categoryId == null)
+            if (minPrice != null && maxPrice != null)
             {
-                ShopListViewModel shopListVM = new ShopListViewModel()
-                {
-                    Products = _context.Products
-                    .Include(x => x.Category)
-                    .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower()))||(x.Category.Name.ToLower().Contains(search.ToLower()))|| (x.Title.ToLower().Contains(search.ToLower())))
-                    .OrderByDescending(x => x.Id).ToList(),
-                    Categories = _context.Categories.ToList(),
+                ViewBag.MinPrice = Convert.ToInt32(minPrice);
+                ViewBag.MaxPrice = Convert.ToInt32(maxPrice);
 
-                };
-                return View(shopListVM);
+                if (categoryId == null)
+                {
+                    ShopListViewModel shopListVM = new ShopListViewModel()
+                    {
+                        Products = _context.Products
+                        .Include(x => x.Category)
+                        .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower())) || (x.Category.Name.ToLower()
+                        .Contains(search.ToLower())) || (x.Title.ToLower().Contains(search.ToLower())))
+                        .Where(x => x.Price < Convert.ToInt32(maxPrice) && x.DiscountPrice > Convert.ToInt32(minPrice))
+                        .OrderByDescending(x => x.Id).ToList(),
+                        Categories = _context.Categories.ToList(),
+
+                    };
+                    return View(shopListVM);
+                }
+                else
+                {
+                    ShopListViewModel shopListVM = new ShopListViewModel()
+                    {
+                        Products = _context.Products
+                       .Include(x => x.Category)
+                       .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower())))
+                       .Where(x => x.Price < Convert.ToInt32(maxPrice) && x.DiscountPrice > Convert.ToInt32(minPrice))
+                       .Where(x => x.CategoryId == categoryId)
+                       .OrderByDescending(x => x.Id).ToList(),
+                        Categories = _context.Categories.ToList(),
+                    };
+                    return View(shopListVM);
+                }
             }
             else
             {
-                ShopListViewModel shopListVM = new ShopListViewModel()
+                ViewBag.MinPrice = Convert.ToInt32(_context.Products.Min(x => x.DiscountPrice));
+                ViewBag.MaxPrice = Convert.ToInt32(_context.Products.Max(x => x.Price));
+
+                if (categoryId == null)
                 {
-                    Products = _context.Products
-                   .Include(x => x.Category)
-                   .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower())))
-                   .Where(x => x.CategoryId == categoryId)
-                   .OrderByDescending(x => x.Id).ToList(),
-                    Categories = _context.Categories.ToList(),
-                };
-                return View(shopListVM);
+                    ShopListViewModel shopListVM = new ShopListViewModel()
+                    {
+                        Products = _context.Products
+                        .Include(x => x.Category)
+                        .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower())) || (x.Category.Name.ToLower()
+                        .Contains(search.ToLower())) || (x.Title.ToLower().Contains(search.ToLower())))
+                        .OrderByDescending(x => x.Id).ToList(),
+                        Categories = _context.Categories.ToList(),
+
+                    };
+                    return View(shopListVM);
+                }
+                else
+                {
+                    ShopListViewModel shopListVM = new ShopListViewModel()
+                    {
+                        Products = _context.Products
+                       .Include(x => x.Category)
+                       .Where(x => string.IsNullOrWhiteSpace(search) ? true : (x.Name.ToLower().Contains(search.ToLower())))
+                       .Where(x => x.CategoryId == categoryId)
+                       .OrderByDescending(x => x.Id).ToList(),
+                        Categories = _context.Categories.ToList(),
+                    };
+                    return View(shopListVM);
+                }
             }
         }
 
@@ -130,7 +172,7 @@ namespace LabradogApp.Controllers
             return RedirectToAction("index");
         }
 
-        public IActionResult AddBasket(int id,int countClick)
+        public IActionResult AddBasket(int id, int countClick)
         {
 
             Product product = _context.Products.FirstOrDefault(x => x.Id == id);

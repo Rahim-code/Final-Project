@@ -175,14 +175,16 @@
                     {
         <li class="nav-item mx-4">
             <a class="nav-link H" href="@Url.Action("login","auth")"><i class="fas fa-user-plus"></i></a>
-        </li> }
-                    else
-                    {
-        <li class="nav-item mx-4">
-            <form action="@Url.Action("logout","auth")" method="post">
-                <button type="submit" class="nav-link H btn btn-danger text-white"> Çıxış</button>
-            </form>
-        </li>}
+        </li>
+ }
+    else
+    {
+<li class="nav-item mx-4">
+    <form action="@Url.Action("logout","auth")" method="post">
+        <button type="submit" class="nav-link H btn btn-danger text-white"> Çıxış</button>
+    </form>
+</li>
+}
                 </ul>
 
 
@@ -251,6 +253,12 @@
     <script src="~/LabraDog/script/carusel.js"></script>
     <script src="~/LabraDog/script/jS.js"></script>
 
+    <script>
+        var maxPrice = $("#maxPrice").val();
+        $("#customRange1").on("change paste keyup", function () {
+            $("#maxPrice").val(maxPrice * $("#customRange1").val() / 100)
+        });
+    </script>   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
