@@ -130,7 +130,7 @@ namespace LabradogApp.Controllers
             return RedirectToAction("index");
         }
 
-        public IActionResult AddBasket(int id)
+        public IActionResult AddBasket(int id,int countClick)
         {
 
             Product product = _context.Products.FirstOrDefault(x => x.Id == id);
@@ -142,7 +142,7 @@ namespace LabradogApp.Controllers
             ProductBasketItem productBasketItem = new ProductBasketItem
             {
                 Id = product.Id,
-                Count = 1
+                Count = countClick
             };
 
             if (HttpContext.Request.Cookies["basket"] == null)
@@ -158,7 +158,7 @@ namespace LabradogApp.Controllers
 
                 if (existBasketItem != null)
                 {
-                    existBasketItem.Count += 1;
+                    existBasketItem.Count += countClick;
                 }
                 else
                 {

@@ -36,6 +36,9 @@
                         </span><span class="text-muted">@Model.Product.CountryOfOrigin</span>
                     </p>
                     <form method="post" action="@Url.Action("addbasket","shop",new {id=Model.Product.Id })">
+                        <button class="rounded-pill BTCR border-0 py-2 px-3" type="button" onClick="onClick()">+</button>
+                        <span class="mx-3"> <input id="clicks" name="countClick" value="1" style="border:none;width:20px;"/></span>
+                        <button class="rounded-pill BTCR2 border-0" type="button" onClick="onClickk()">-</button>
                         <button type="submit" class="btn btn-outline-warning rounded-pill BRP text-dark px-3 fw-bold">Add To Cart</button>
                     </form>
                 </div>
@@ -195,7 +198,5 @@
 
     </div>
 </div>
-    </div>
-    </div>
-    </div>
+ 
 

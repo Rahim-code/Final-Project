@@ -27,18 +27,19 @@ function loading() {
   
   setTimeout(loading, 1000);
 
-  var clicks = 0;
-  var clickss = 0;
+var clicks = parseInt($("#clicks").attr('value'), 10);
+var clickss = $("#clickss").attr('value');
 
 function onClick() {
   clicks += 1;
-  document.getElementById("clicks").innerHTML = clicks;
+    $("#clicks").val(clicks);
 };
 
 function onClickk() {
-if (clicks>0){
+if (clicks>1){
     clicks -= 1;
-    document.getElementById("clicks").innerHTML = clicks;
+    $("#clicks").val(clicks);
+
     
   }
 };
@@ -47,12 +48,12 @@ if (clicks>0){
 
 function Clickon() {
   clickss += 1;
-  document.getElementById("clickss").innerHTML = clickss;
+    $("#clickss").val(clickss);
 };
 function Clickkon() {
-  if(clickss>0){
+  if(clickss>1){
     clickss -= 1;
-  document.getElementById("clickss").innerHTML = clickss;
+      $("#clickss").val(clickss);
   }
   
 };
