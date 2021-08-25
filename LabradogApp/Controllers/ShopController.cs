@@ -22,7 +22,7 @@ namespace LabradogApp.Controllers
         }
 
 
-        public IActionResult Index(string search, int? categoryId, decimal? minPrice,decimal? maxPrice)
+        public IActionResult Index(string search, int? categoryId, decimal? minPrice, decimal? maxPrice)
         {
             if (minPrice != null && maxPrice != null)
             {
@@ -142,7 +142,7 @@ namespace LabradogApp.Controllers
         }
 
         [Route("/basket")]
-        public IActionResult Basket()
+        public IActionResult Basket(int count)
         {
             var productStr = HttpContext.Request.Cookies["basket"];
             if (productStr != null)
@@ -153,18 +153,37 @@ namespace LabradogApp.Controllers
                 foreach (var item in cookieBasketItems)
                 {
                     Product product = _context.Products.FirstOrDefault(x => x.Id == item.Id);
-                    BasketItemViewModel basketItem = new BasketItemViewModel
+                    if (count != 0)
                     {
-                        Id = product.Id,
-                        Count = item.Count,
-                        Name = product.Name,
-                        Price = product.DiscountPrice,
-                        Image = product.Image,
-                        Title = product.Title
-                    };
-                    basketItem.TotalPrice = basketItem.Price * basketItem.Count;
+                        BasketItemViewModel basketItem = new BasketItemViewModel
+                        {
+                            Id = product.Id,
+                            Count = count,
+                            Name = product.Name,
+                            Price = product.DiscountPrice,
+                            Image = product.Image,
+                            Title = product.Title
+                        };
+                        basketItem.TotalPrice = basketItem.Price * basketItem.Count;
 
-                    basketItems.Add(basketItem);
+                        basketItems.Add(basketItem);
+                    }
+                    else
+                    {
+                        BasketItemViewModel basketItem = new BasketItemViewModel
+                        {
+                            Id = product.Id,
+                            Count = item.Count,
+                            Name = product.Name,
+                            Price = product.DiscountPrice,
+                            Image = product.Image,
+                            Title = product.Title
+                        };
+                        basketItem.TotalPrice = basketItem.Price * basketItem.Count;
+
+                        basketItems.Add(basketItem);
+                    }
+
                 }
 
                 return View(basketItems);
@@ -172,7 +191,7 @@ namespace LabradogApp.Controllers
             return RedirectToAction("index");
         }
 
-        public IActionResult AddBasket(int id, int countClick)
+        public IActionResult AddBasket(int id, int countClick,string type)
         {
 
             Product product = _context.Products.FirstOrDefault(x => x.Id == id);
@@ -200,7 +219,15 @@ namespace LabradogApp.Controllers
 
                 if (existBasketItem != null)
                 {
-                    existBasketItem.Count += countClick;
+                    if (type == "Increment")
+                    {
+                        existBasketItem.Count++;
+
+                    }
+                    else
+                    {
+                        existBasketItem.Count--;
+                    }
                 }
                 else
                 {
@@ -224,5 +251,6 @@ namespace LabradogApp.Controllers
 
             return RedirectToAction("basket");
         }
+
     }
 }

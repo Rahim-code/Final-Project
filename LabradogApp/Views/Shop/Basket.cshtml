@@ -68,10 +68,24 @@
                             @item.Price
                         </p>
                     </div>
-                    <div style="height: 10vh;" class="col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center align-items-center">
-                        <button class="rounded-pill BTCR border-0 py-2 px-3" type="button" onClick="onClick()">+</button>
+                    <div style="height: 10vh;" class="col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center align-items-center" id="incrementPrice">
+                        <form method="post" action="@Url.Action("addbasket", "shop", new { id = item.Id, countClick = (item.Count),})">
+                            <button class="rounded-pill BTCR border-0 py-2 px-3" type="submit">+</button>
+                            <input type="hidden" value="Increment" name="type" />
+                        </form>
                         <span class="mx-3"> <input id="clicks" name="countClick" value="@item.Count" style="border:none;width:20px;" /></span>
-                        <button class="rounded-pill BTCR2 border-0" type="button" onClick="onClickk()">-</button>
+                        @if (item.Count > 1)
+                        {
+                            <form method="post" action="@Url.Action("addbasket", "shop", new { id = item.Id, countClick = (item.Count - 1), type = 0 })">
+                                <button class="rounded-pill BTCR2 border-0" type="submit">-</button>
+                                <input type="hidden" value="Decrement" name="type" />
+                            </form>
+                        }
+                        else
+                        {
+                                <button class="rounded-pill BTCR2 border-0" type="submit">-</button>
+                                <input type="hidden" value="Decrement" name="type" />
+                        }
                     </div>
                     <div style="height: 10vh;" class="col-lg-2 col-md-2 col-sm-12">
                         <p style="height: 100%;" class="text-muted d-flex justify-content-center align-items-center">

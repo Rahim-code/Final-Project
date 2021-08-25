@@ -27,15 +27,15 @@ function loading() {
   
   setTimeout(loading, 1000);
 
-var clicks = parseInt($("#clicks").attr('value'), 10);
 var clickss = $("#clickss").attr('value');
+var clicks = parseInt($("#clicks").attr('value'), 10);
 
-function onClick() {
+function onClick(id) {
   clicks += 1;
     $("#clicks").val(clicks);
 };
 
-function onClickk() {
+function onClickk(id) {
 if (clicks>1){
     clicks -= 1;
     $("#clicks").val(clicks);
