@@ -24,16 +24,7 @@
                             <p class="GBT">by <span class="HP">@item.User.FullName</span> posted @item.Created_At.ToShortDateString()</p>
                             <p class="GBTT HP">@item.Name</p>
                             <p class="text-muted">
-                                @if (item.Description.Length > 150)
-                                {
-
-                                    @Html.Raw(item.Description.Substring(0, 150))
-                                }
-                                else
-                                {
-                                    @Html.Raw(item.Description)
-                                }
-                                ...
+                               Ut enim ad minim veniam, quis nostrud exercitation ullamosa laboris nisi ut aliquip ex ea commado consequart ...
                             </p>
                         </div>
                     </div>
