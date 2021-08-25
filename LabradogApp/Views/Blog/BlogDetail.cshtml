@@ -18,7 +18,7 @@
             <div class="">
                 <span class=" rounded-pill  px-2 m-2 BNW py-1">@Model.Blog.Category.Name</span>
                 <span class="GBT ms-2">by <span class="HP">@Model.Blog.User.FullName</span> posted @Model.Blog.Created_At.ToShortDateString()</span>
-                <p class="text-muted py-5">
+                <p class="text-muted py-3">
                     @Html.Raw(Model.Blog.Description)
                 </p>
                 <hr>
@@ -59,7 +59,7 @@
                         <div class="card mb-3 border-0" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4 py-3">
-                                    <img src="~/LabraDog/img/BPD1.jpg" class="img-fluid rounded-start" alt="...">
+                                    <img src="~/uploads/@item.Image" class="img-fluid rounded-start" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
