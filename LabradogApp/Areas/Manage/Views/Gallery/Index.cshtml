@@ -19,9 +19,10 @@
         <thead>
             <tr class="row">
                 <th class="col-md-1">#</th>
-                <th class="col-md-4">Dog Image</th>
+                <th class="col-md-3">Dog Image</th>
                 <th class="col-md-2">Dog Name</th>
                 <th class="col-md-2">Old</th>
+                <th class="col-md-2">Sex</th>
             </tr>
         </thead>
         <tbody>
@@ -31,12 +32,13 @@
                 i++;
             <tr class="row">
                 <td class="col-md-1">@i</td>
-                <td class="col-md-4">
+                <td class="col-md-3">
                     <img src="~/uploads/@item.DogImage" style="height:80px" />
                 </td>
                 <td class="col-md-2">@item.DogName</td>
                 <td class="col-md-2">@item.Old</td>
-                <td class="col-md-3">
+                <td class="col-md-2">@(item.IsMale ? "Male" : "Female" )</td>
+                <td class="col-md-2">
                     <a class="btn btn-warning" asp-action="edit" asp-route-id="@item.Id" href="@Url.Action("edit","gallery",new { id=item.Id})">Edit</a>
                     <a class="btn btn-danger dlt-btn" asp-action="delete" asp-route-id="@item.Id" href="@Url.Action("delete","gallery",new { id=item.Id})">Delete</a>
                 </td>
