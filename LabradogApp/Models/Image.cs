@@ -5,5 +5,6 @@
         public string DogImage { get; set; }
         public string DogName { get; set; }
         public int Old { get; set; }
+        public bool IsMale { get; set; }
     }
 }

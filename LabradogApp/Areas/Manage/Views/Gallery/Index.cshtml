@@ -37,6 +37,7 @@
                 <td class="col-md-2">@item.DogName</td>
                 <td class="col-md-2">@item.Old</td>
                 <td class="col-md-3">
+                    <a class="btn btn-warning" asp-action="edit" asp-route-id="@item.Id" href="@Url.Action("edit","gallery",new { id=item.Id})">Edit</a>
                     <a class="btn btn-danger dlt-btn" asp-action="delete" asp-route-id="@item.Id" href="@Url.Action("delete","gallery",new { id=item.Id})">Delete</a>
                 </td>
             </tr>
@@ -67,7 +68,7 @@
             }
             @for (int j = startpage; j <= endPage; j++)
             {
-                <li class="page-item @(j==selectedPage?"active":"")"><a class="page-link" href="@Url.Action("index","category",new {page=j })" asp-action="index" asp-route-page="@j">@j</a></li>
+                <li class="page-item @(j==selectedPage?"active":"")"><a class="page-link" href="@Url.Action("index","gallery",new {page=j })" asp-action="index" asp-route-page="@j">@j</a></li>
             }
             <li class="page-item @(selectedPage==totalPage?"disabled":"") "><a class="page-link" asp-action="index" href="@Url.Action("index","gallery",new {page=selectedPage+1 })" asp-route-page="@(selectedPage+1)">Next</a></li>
         </ul>

@@ -1,28 +1,31 @@
-﻿
+﻿@model LabradogApp.Models.Image
+
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
 }
 
-<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("create","gallery")">
+
+<form class="container" enctype="multipart/form-data" method="post" action="@Url.Action("edit","gallery",new {id=Model.Id })">
     <div class="form-group">
         <input type="text" class="form-control form-control-user"
                id="DogName" name="DogName" aria-describedby="emailHelp"
-               placeholder="Enter Dog Name..." required>
+               placeholder="Enter Dog Name..." required value="@Model.DogName">
     </div>
     <div class="form-group">
         <input type="number" class="form-control form-control-user"
-               id="Old" name="Old" placeholder="Enter Old">
+               id="Old" name="Old" placeholder="Enter Old" value="@Model.Old">
     </div>
     <div class="form-group">
         <input type="file" class="form-control form-control-user"
-               id="DogImage" name="DogImage" placeholder="Dog Image" required>
+               id="DogImage" name="DogImage" placeholder="Dog Image">
+        <img src="~/uploads/@Model.DogImage" style="height:80px" class="mt-2" />
     </div>
     <div class="form-group">
         <select class="form-control form-control-user" required name="IsMale">
-            <option value="true">Male</option>
-            <option value="false">Female</option>
-        </select>   
+            <option value="true" @(Model.IsMale ? "selected" : null) >Male</option>
+            <option value="false"  @(!Model.IsMale ? "selected" : null) >Female</option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary btn-user btn-block">
         Add This Image to Gallery

@@ -46,10 +46,44 @@ namespace LabradogApp.Areas.Manage.Controllers
             newImage.DogName = image.DogName;
             newImage.Old = image.Old;
             newImage.DogImage = FileManager.Save(image.DogImage);
+            newImage.IsMale = image.IsMale;
             _context.Add(newImage);
             _context.SaveChanges();
             return RedirectToAction("index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            Image image = _context.Images.FirstOrDefault(x => x.Id == id);
+
+            if (image == null) return RedirectToAction("index");
+
+            return View(image);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, GalleryImageCreateDto image)
+        {
+            if (!ModelState.IsValid) return View();
+
+            Image existImage = _context.Images.FirstOrDefault(x => x.Id == id);
+
+            if (existImage == null) return RedirectToAction("index");
+
+            existImage.Old = image.Old;
+            existImage.DogName = image.DogName;
+            existImage.IsMale = image.IsMale;
+            if (image.DogImage != null)
+            {
+                existImage.DogImage = FileManager.Save(image.DogImage);
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
+        }
+
+
 
         public IActionResult Delete(int id)
         {
